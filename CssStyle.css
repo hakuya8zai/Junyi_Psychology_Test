@@ -1,0 +1,403 @@
+body {
+  background-color: white;
+  margin: 0;
+  font-family: "PingFangTC-Regular", "Noto Sans TC", "sans-serif";
+}
+
+.App {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.Audio {
+  position: absolute;
+  z-index: 100;
+  top: 10px;
+  right: 10px;
+  color: white;
+}
+
+.Page0,
+.Page1,
+.Page2,
+.Page3,
+.Page4,
+.Page5,
+.Page6,
+.Page7,
+.Page8,
+.Page9 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.Description {
+  padding-top: 15%;
+  position: relative;
+  display: block;
+  width: 76%;
+  height: auto;
+  margin-left: 12%;
+  margin-right: 12%;
+  color: rgba(255, 255, 255, 0.9);
+  z-index: 21;
+  font-size: 1.1rem;
+  text-align: center;
+}
+.line1,
+.line2 {
+  margin-bottom: 5%;
+}
+.Question {
+  margin-top: 10%;
+  height: 10%;
+  width: 76%;
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  z-index: 21;
+  font-size: 1.3rem;
+}
+.Button_container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  margin-top: 40px;
+  width: 80%;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 11;
+}
+.Button1 {
+  position: relative;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  border-radius: 5px;
+  /* justify-content: center; */
+  width: 46%;
+  margin: 0px 2%;
+  padding: 0px 15px;
+  height: 80px;
+  color: rgb(40, 40, 40);
+  background-color: hsla(0, 0%, 100%, 0.8);
+  font-size: 0.9rem;
+  border: 0ch;
+  box-shadow: none;
+}
+.Button2 {
+  position: relative;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  border-radius: 5px;
+  /* justify-content: center; */
+  width: 46%;
+  margin: 0px 2%;
+  padding: 0px 15px;
+  height: 80px;
+  color: rgb(40, 40, 40);
+  background-color: hsla(0, 0%, 100%, 0.8);
+  font-size: 0.9rem;
+  border: 0ch;
+  box-shadow: none;
+}
+.Button3 {
+  position: relative;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  border-radius: 5px;
+  /* justify-content: center; */
+  width: 46%;
+  margin: 0px 2%;
+  padding: 0px 15px;
+  height: 80px;
+  color: rgb(40, 40, 40);
+  background-color: hsla(0, 0%, 100%, 0.8);
+  font-size: 0.9rem;
+  border: 0ch;
+  box-shadow: none;
+}
+.Button4 {
+  position: relative;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  border-radius: 5px;
+  /* justify-content: center; */
+  width: 46%;
+  margin: 0px 2%;
+  padding: 0px 15px;
+  height: 80px;
+  color: rgb(40, 40, 40);
+  background-color: hsla(0, 0%, 100%, 0.8);
+  font-size: 0.9rem;
+  border: 0ch;
+  box-shadow: none;
+}
+.background_image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  overflow: hidden;
+}
+.background_image_layer1 {
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  width: max-content;
+  background-size: cover;
+  /* transform: translate(-40%, 0); */
+}
+.background_image_layer2 {
+  position: absolute;
+  z-index: 2;
+  height: 100%;
+  width: max-content;
+  background-size: cover;
+  animation: StarShine 4s infinite alternate-reverse;
+  /* transform: translate(-40%, 0); */
+}
+.background_image_layer3 {
+  position: absolute;
+  z-index: 3;
+  height: 100%;
+  width: max-content;
+  background-size: cover;
+  transform: translate(-60%, 0);
+  animation: StarShine 3s infinite alternate-reverse;
+}
+.background_image_layer4 {
+  position: absolute;
+  z-index: 4;
+  height: 100%;
+  width: max-content;
+  background-size: cover;
+  /* transform: translate(-40%, 0); */
+  animation: CloudMove 200s infinite;
+}
+.background_image_layer5 {
+  position: absolute;
+  z-index: 5;
+  width: auto;
+  height: auto;
+  background-size: contain;
+  bottom: -5px;
+}
+/*隱藏其他頁面*/
+.hide {
+  visibility: hidden;
+}
+
+/*轉場時添加，小心優先級*/
+.Button_container.transIn {
+  animation: FadeIn2 4s;
+}
+.Description.transIn {
+  animation: FadeIn 1s;
+}
+.Question.transIn {
+  animation: FadeIn2 2s;
+}
+.background_image.transIn {
+  animation: FadeIn 1s;
+}
+.Button_container.transOut {
+  animation: buttonfade 1s;
+}
+.Description.transOut {
+  animation: buttonfade 1s;
+}
+.Question.transOut {
+  animation: buttonfade 1s;
+}
+.background_image.transOut {
+  animation: buttonfade 1s;
+}
+
+/*---以下是特別樣式區（做各種微調）---*/
+
+/*---載入頁樣式區---*/
+.Page0.Description {
+  font-size: 4rem;
+  margin-top: 65%;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.699);
+}
+.Page0.background_image_layer5 {
+  bottom: 50%;
+  margin-left: 50%;
+  transform: translate(-25%, -25%);
+}
+.Page0.background_image_layer1 {
+  opacity: 0.8;
+}
+/*---第一頁樣式區---*/
+.Page1.background_image_layer5 {
+  width: 75%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/*---第二頁樣式區---*/
+.Page2.Description.transIn {
+  animation: fa 1s;
+}
+.Page2.Description.transIn .line1 {
+  animation: FadeIn 0.5s;
+}
+.Page2.Description.transIn .line2 {
+  animation: FadeIn2 1s;
+}
+.Page2.Description.transOut {
+  animation: buttonfade 1s;
+}
+
+.Page2.Question {
+  color: rgb(94, 94, 94);
+}
+.Page2 .line1 {
+  color: rgb(94, 94, 94);
+}
+.Page2 .line2 {
+  color: rgb(94, 94, 94);
+}
+.Page2.background_image_layer1 {
+  transform: translate(-40%, 0);
+}
+/*---第三頁樣式區---*/
+.Page3.Description {
+  color: rgb(94, 94, 94);
+}
+.Page3.Question {
+  color: rgb(94, 94, 94);
+}
+/*---第四頁樣式區---*/
+.Page4.Description {
+  color: rgb(94, 94, 94);
+}
+.Page4.Question {
+  color: rgb(94, 94, 94);
+}
+.Page4.background_image_layer5 {
+  width: 75%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/*---第五頁樣式區---*/
+.Page5.background_image_layer4 {
+  left: 90%;
+  top: 40%;
+  background-size: contain;
+  height: 30%;
+}
+.Page5.background_image_layer5 {
+  width: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/*---第六頁樣式區---*/
+.Page6.background_image_layer5 {
+  width: 75%;
+  left: 10%;
+}
+/*---第七頁樣式區---*/
+.Page7.background_image_layer5 {
+  width: 150%;
+  background-size: unset;
+  transform: translateX(-50%);
+}
+/*---第八頁樣式區---*/
+.Page8.background_image_layer1 {
+  background-size: contain;
+  bottom: 0;
+  width: 100%;
+}
+.Page8.background_image_layer5 {
+  width: 75%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/*---結算頁樣式區---*/
+.Page9.background_image_layer1 {
+  transform: translate(-7%, 0);
+  z-index: -10;
+}
+
+.Finalscore {
+  position: relative;
+  display: block;
+  margin-top: 667px;
+  width: 100%;
+  height: 40%;
+  background-color: blanchedalmond;
+  padding-top: 5%;
+}
+
+.Vscore,
+.Ascore,
+.Rscore,
+.Kscore {
+  margin-left: 50%;
+  transform: translateX(-25%);
+  font-size: 1.5rem;
+  color: rgb(94, 94, 94);
+}
+/*-以下是各種動畫：轉場以及每頁的單獨動畫-*/
+
+/*轉場動畫*/
+@keyframes buttonfade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes FadeIn2 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*第一頁動畫*/
+@keyframes StarShine {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes CloudMove {
+  0% {
+    transform: translate(0%, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
