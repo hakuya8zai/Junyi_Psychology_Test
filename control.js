@@ -310,7 +310,7 @@ function ResultPage(){
 
     switch (CaseID){
         case 1:
-            resultImage.src="/image/Result/01_V/1_V_observer.png";
+            resultImage.src="image/Result/01_V/1_V_observer.png";
 
             console.log("check-V");
             break;
