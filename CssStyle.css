@@ -1,21 +1,33 @@
 body {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   margin: 0;
   font-family: "PingFangTC-Regular", "Noto Sans TC", "sans-serif";
 }
 
 .App {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  position: fixed;
+  width: 375px;
+  height: 667px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
 }
 
-.Audio {
+
+.material-icons {
   position: absolute;
-  z-index: 100;
   top: 10px;
   right: 10px;
-  color: white;
+  z-index: 125;
+  padding: 6px;
+  border-width: 3px;
+  border-radius: 100px;
+  border-color: rgba(255, 255, 255, 0);
+  background-color: rgba(197, 197, 197, 0.2);
+  color: rgb(255, 255, 255);
+  box-shadow: none;
 }
 
 .Page0,
@@ -202,13 +214,13 @@ body {
   animation: FadeIn2 4s;
 }
 .Description.transIn {
-  animation: FadeIn 1s;
+  animation: FadeIn 1.5s;
 }
 .Question.transIn {
   animation: FadeIn2 2s;
 }
 .background_image.transIn {
-  animation: FadeIn 1s;
+  animation: FadeIn 0.5s;
 }
 .Button_container.transOut {
   animation: buttonfade 1s;
@@ -238,7 +250,7 @@ body {
   transform: translate(-25%, -25%);
 }
 .Page0.background_image_layer1 {
-  opacity: 0.8;
+  opacity: 0.6;
 }
 /*---第一頁樣式區---*/
 .Page1.background_image_layer5 {
@@ -247,17 +259,23 @@ body {
   transform: translateX(-50%);
 }
 /*---第二頁樣式區---*/
-.Page2.Description.transIn {
-  animation: fa 1s;
+.Page2.Question.transIn {
+  animation: FadeIn2 3s;
 }
 .Page2.Description.transIn .line1 {
   animation: FadeIn 0.5s;
 }
 .Page2.Description.transIn .line2 {
-  animation: FadeIn2 1s;
+  animation: FadeIn2 1.5s;
 }
 .Page2.Description.transOut {
   animation: buttonfade 1s;
+}
+.Page2.Question.transOut{
+  animation: buttonfade 1s;
+}
+.Page2.Button_container{
+  margin-top: 0;
 }
 
 .Page2.Question {
@@ -272,6 +290,12 @@ body {
 .Page2.background_image_layer1 {
   transform: translate(-40%, 0);
 }
+.Page2.background_image_layer5 {
+  width: 75%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 /*---第三頁樣式區---*/
 .Page3.Description {
   color: rgb(94, 94, 94);
@@ -279,6 +303,18 @@ body {
 .Page3.Question {
   color: rgb(94, 94, 94);
 }
+.Page3.background_image_layer2 {
+  position: absolute;
+  z-index: 10;
+  height: 120px;
+  padding-top: 100px;
+  padding-left: 76px;
+  width: 221px;
+  margin-top: 400px;
+  animation: none;
+  /* transform: translate(-40%, 0); */
+}
+
 /*---第四頁樣式區---*/
 .Page4.Description {
   color: rgb(94, 94, 94);
@@ -299,20 +335,40 @@ body {
   height: 30%;
 }
 .Page5.background_image_layer5 {
-  width: 60%;
+  width: 100%;
   left: 50%;
   transform: translateX(-50%);
 }
 
 /*---第六頁樣式區---*/
+.Page6.background_image_layer1 {
+  left: -20%;
+}
+
 .Page6.background_image_layer5 {
   width: 75%;
   left: 10%;
 }
 /*---第七頁樣式區---*/
+.Page7.background_image {
+  background-color: rgb(20, 20, 20);
+
+}
+.Page7.background_image_layer1 {
+  position: absolute;
+  z-index: 1;
+  width: 375px;
+  height: 296px;
+  bottom: 0px;
+  background-size: contain;
+  /* transform: translate(-40%, 0); */
+}
+
 .Page7.background_image_layer5 {
-  width: 150%;
+  width: 100%;
+  bottom: 60px;
   background-size: unset;
+  left: 20%;
   transform: translateX(-50%);
 }
 /*---第八頁樣式區---*/
@@ -320,28 +376,84 @@ body {
   background-size: contain;
   bottom: 0;
   width: 100%;
+  transform: translateX(-60%);
 }
 .Page8.background_image_layer5 {
-  width: 75%;
+  width: 60%;
+  bottom: 1%;
   left: 50%;
   transform: translateX(-50%);
 }
 
 /*---結算頁樣式區---*/
+
 .Page9.background_image_layer1 {
-  transform: translate(-7%, 0);
-  z-index: -10;
+  z-index: 1;
+  width: 375px;
+  height: 667px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.Page9 > .resultImage1{
+  max-height: 100%;
+}
+.Page9.background_image_layer2 {
+  animation: none;
+  z-index: 2;
+  width: 375px;
+  height: 667px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.Page9 > .resultImage2{
+  max-width: 100%;
+  max-height: 100%;
 }
 
-.Finalscore {
-  position: relative;
-  display: block;
-  margin-top: 667px;
-  width: 100%;
-  height: 40%;
-  background-color: blanchedalmond;
-  padding-top: 5%;
+.Page9.background_image_layer5 {
+  animation: none;
+  z-index: 5;
+  width: 185px;
+  height: 667px;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
+.Page9 > .resultImage5{
+  padding-top: 60px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+
+.Finalscore {
+  position: absolute;
+  display: block;
+  margin-top: 367px;
+  width: 100%;
+  height: 200px;
+  background-color: rgba(255, 235, 205, 0.449);
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+
+/* 下面這段是原本的 vark 能力圖 */
+/* .Capability_Map {
+  width: 250px;
+  height: 250px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 255, 0.212);
+  border-color: black;
+  border-width: 10px;
+}
+.Capability_Map.After {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+} */
 
 .Vscore,
 .Ascore,
@@ -349,7 +461,7 @@ body {
 .Kscore {
   margin-left: 50%;
   transform: translateX(-25%);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: rgb(94, 94, 94);
 }
 /*-以下是各種動畫：轉場以及每頁的單獨動畫-*/

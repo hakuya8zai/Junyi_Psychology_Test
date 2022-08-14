@@ -9,18 +9,23 @@ let Aural_score = 0;
 let ReadWrite_score = 0;
 let Kinesthetic_score = 0;
 let NowPage = 0;
+let NowMusic = 0;
+let CaseID = 0;
+let Mute = true;
+
 
 // 找到每個按鈕並套上事件
 function setButton(){
     let Button_addV = document.getElementsByClassName("ButtonV");
-    Button_addV[0].addEventListener("click",addScoreV);
+    Button_addV[NowPage].addEventListener("click",addScoreV);
     let Button_addA = document.getElementsByClassName("ButtonA");
-    Button_addA[0].addEventListener("click",addScoreA);
+    Button_addA[NowPage].addEventListener("click",addScoreA);
     let Button_addR = document.getElementsByClassName("ButtonR");
-    Button_addR[0].addEventListener("click",addScoreR);
+    Button_addR[NowPage].addEventListener("click",addScoreR);
     let Button_addK = document.getElementsByClassName("ButtonK");
-    Button_addK[0].addEventListener("click",addScoreK);
-    
+    Button_addK[NowPage].addEventListener("click",addScoreK);
+    let Soundon = document.getElementsByClassName("on");
+    let Soundoff = document.getElementsByClassName("off");    
 
     for(let i=0; i<Button_addA.length;i++){
         Button_addV[i].addEventListener("click",addScoreV);
@@ -28,30 +33,66 @@ function setButton(){
         Button_addR[i].addEventListener("click",addScoreR);
         Button_addK[i].addEventListener("click",addScoreK);
     }
+
+    //換音樂的按鈕事件
+    Button_addV[1].addEventListener("click",MusicNext);
+    Button_addV[3].addEventListener("click",MusicNext);
+    Button_addV[5].addEventListener("click",MusicNext);
+    Button_addA[1].addEventListener("click",MusicNext);
+    Button_addA[3].addEventListener("click",MusicNext);
+    Button_addA[5].addEventListener("click",MusicNext);
+    Button_addR[1].addEventListener("click",MusicNext);
+    Button_addR[3].addEventListener("click",MusicNext);
+    Button_addR[5].addEventListener("click",MusicNext);
+    Button_addK[1].addEventListener("click",MusicNext);
+    Button_addK[3].addEventListener("click",MusicNext);
+    Button_addK[5].addEventListener("click",MusicNext);
+    //放音效的按鈕事件
+    Button_addV[3].addEventListener("click",SFX01_Play);
+    Button_addA[3].addEventListener("click",SFX01_Play);
+    Button_addR[3].addEventListener("click",SFX01_Play);
+    Button_addK[3].addEventListener("click",SFX01_Play);
+    Button_addV[5].addEventListener("click",SFX02_Play);
+    Button_addA[5].addEventListener("click",SFX02_Play);
+    Button_addR[5].addEventListener("click",SFX02_Play);
+    Button_addK[5].addEventListener("click",SFX02_Play);
+
+
+    let music = document.getElementsByClassName("BGM");
+    for(let s=0;s<music.length;s++){
+        music[s].volume = 0;
+    }
+    Soundon[0].addEventListener("click",AudioSwitch);
+    Soundoff[0].addEventListener("click",AudioSwitch);
 }
 
 function addScoreV(){
     Visual_score++;
-    disableButton();
+    afterChoose();
     console.log("V得分："+Visual_score);
 }
 function addScoreA(){
     Aural_score++;
-    disableButton();
+    afterChoose();
     console.log("A得分："+Aural_score);
 }
 function addScoreR(){
     ReadWrite_score++;
-    disableButton();
+    afterChoose();
     console.log("R得分："+ReadWrite_score);
 }
 function addScoreK(){
     Kinesthetic_score++;
-    disableButton();
+    afterChoose();
     console.log("K得分："+Kinesthetic_score);
 }
 
-//讓按鈕不被重複點擊
+function afterChoose(){
+    disableButton();
+    PageTransition();
+}
+
+//讓按鈕不可被點擊
 function disableButton(){
     let disabled_ButtonV = document.querySelector((".Page"+NowPage)+".ButtonV");
     let disabled_ButtonA = document.querySelector((".Page"+NowPage)+".ButtonA");
@@ -62,8 +103,36 @@ function disableButton(){
     disabled_ButtonA.disabled = true;
     disabled_ButtonR.disabled = true;
     disabled_ButtonK.disabled = true;
+}
+//讓按鈕可被點擊
+function enableButton(){
+    let disabled_ButtonV = document.querySelector((".Page"+NowPage)+".ButtonV");
+    let disabled_ButtonA = document.querySelector((".Page"+NowPage)+".ButtonA");
+    let disabled_ButtonR = document.querySelector((".Page"+NowPage)+".ButtonR");
+    let disabled_ButtonK = document.querySelector((".Page"+NowPage)+".ButtonK");
 
-    PageTransition();
+    disabled_ButtonV.disabled = false;
+    disabled_ButtonA.disabled = false;
+    disabled_ButtonR.disabled = false;
+    disabled_ButtonK.disabled = false;
+}
+//讓音量按鈕不可被點擊
+function disableAudioButton(){
+    let OnButton = document.querySelector(".on");
+    let OffButton = document.querySelector(".off");
+    
+    OnButton.disabled = true;
+    OffButton.disabled = true;
+
+}
+//讓音量按鈕可以被點擊
+function enableAudioButton(){
+    let OnButton = document.querySelector(".on");
+    let OffButton = document.querySelector(".off");
+    
+    OnButton.disabled = false;
+    OffButton.disabled = false;
+
 }
 
 
@@ -86,6 +155,14 @@ function ChangePage(){
     let oldThings = document.querySelector(".Page"+NowPage);
     oldThings.classList.toggle("hide");
     NowPage++;
+    console.log(NowPage);
+    if(NowPage!=9){
+        disableButton();
+        setTimeout(() => {
+            enableButton();
+            console.log("enable");
+        }, 3000);    
+    }
     let newThings = document.querySelector(".Page"+NowPage);
     newThings.classList.toggle("hide");
 
@@ -109,27 +186,306 @@ function ChangePage(){
 }
 
 
+
 function FinalScore(){
-    if(NowPage==9){
+    if(NowPage==8){
         let ScoreBoard = document.querySelector(".Finalscore");
-        ScoreBoard.querySelector(".Vscore").innerHTML = "V得分："+Visual_score;
-        ScoreBoard.querySelector(".Ascore").innerHTML = "A得分："+Aural_score;
-        ScoreBoard.querySelector(".Rscore").innerHTML = "R得分："+ReadWrite_score;
-        ScoreBoard.querySelector(".Kscore").innerHTML = "K得分："+Kinesthetic_score;
-        console.log(ScoreBoard.querySelector(".Vscore"));
+        ScoreBoard.classList.toggle("hide");
+
+        //把四個的分數寫出來
+        //ScoreBoard.querySelector(".Vscore").innerHTML = "V得分："+Visual_score;
+        //ScoreBoard.querySelector(".Ascore").innerHTML = "A得分："+Aural_score;
+        //ScoreBoard.querySelector(".Rscore").innerHTML = "R得分："+ReadWrite_score;
+        //ScoreBoard.querySelector(".Kscore").innerHTML = "K得分："+Kinesthetic_score;
+
+        //下面是計算最高分的項目
+        let Result = Math.max(Visual_score, Aural_score, ReadWrite_score, Kinesthetic_score);
+
+        if (Result == Visual_score){
+            if(Result != Kinesthetic_score){      
+                if(Result != ReadWrite_score ){
+                    if(Result != Aural_score){
+                        console.log("V");
+                        CaseID = 1;
+                    }
+                    else{
+                        console.log("VA");
+                        CaseID = 5;
+                    }
+                }
+                else{
+                    if(Result != Aural_score){
+                        console.log("VR");
+                        CaseID = 6;
+                    }
+                    else{
+                        console.log("VAR");
+                        CaseID = 11;
+                    }
+                }
+            }
+            else{
+                if(Result != ReadWrite_score){
+                    if(Result != Aural_score){
+                        console.log("VK");
+                        CaseID = 7;
+                    }
+                    else{
+                        console.log("VAK");
+                        CaseID = 12;
+                    }
+                }
+                else{
+                    if(Result != Aural_score){
+                        console.log("VRK");
+                        CaseID = 13;
+                    }
+                    else{
+                        console.log("VARK");
+                        CaseID = 15;
+                    }
+                }
+            }
         }
+        else if(Result == Aural_score){
+            if(Result != Kinesthetic_score){
+                if(Result != ReadWrite_score){
+                    console.log("A");
+                    CaseID = 2;
+                }
+                else{
+                    console.log("AR");
+                    CaseID = 8;
+                }
+            }
+            else{
+                if(Result != ReadWrite_score){
+                    console.log("AK");
+                    CaseID = 9;
+                }
+                else{
+                    console.log("ARK")
+                    CaseID = 14;
+                }
+            }
+        }
+        else if(Result == ReadWrite_score){
+            if(Result != Kinesthetic_score){
+                console.log("R");
+                CaseID = 3;
+            }
+            else{
+                console.loh("RK");
+                CaseID = 10;
+            }
+        }
+        else if(Result == Kinesthetic_score){
+            console.log("K");
+            CaseID = 4;
+        }
+        else{
+            console.log("unknown");
+        }
+        ResultPage();
+    }
+
         setTimeout(() => {
             ChangePage();
         }, 1000);
 
-
 }
 
-function LoadOver(){
-    let oldThings = document.querySelector(".Page"+NowPage);
-    oldThings.classList.toggle("hide");
-    NowPage++;
-    let newThings = document.querySelector(".Page"+NowPage);
-    newThings.classList.toggle("hide");
+// 這個不知道幹嘛的，應該是之前要拿來做動畫的效果
+// function LoadOver(){
+//     let oldThings = document.querySelector(".Page"+NowPage);
+//     oldThings.classList.toggle("hide");
+//     NowPage++;
+//     let newThings = document.querySelector(".Page"+NowPage);
+//     newThings.classList.toggle("hide");    
+// }
+
+// 根據 CaseID，將結尾頁用 switch 顯示為指定的頁面
+function ResultPage(){
+    let resultImage = document.querySelector(".resultImage1");
+
+    switch (CaseID){
+        case 1:
+            resultImage.src="/image/Result/01_V/1_V_觀察員.png";
+
+            console.log("check-V");
+            break;
+        case 2:
+            resultImage.src="image/Page6/blue_background.png";
+
+            console.log("check-A");
+            break;
+        case 3:
+            resultImage.src="image/Page6/blue_background.png";
+
+            console.log("check-R");
+            break;
+        case 4:
+            resultImage.src="image/Page6/blue_background.png";
+
+            console.log("check-K");
+            break;
+        case 5:
+            resultImage.src="image/Page6/blue_background.png";
+
+            console.log("check-VA");
+            break;
+        case 6:
+            resultImage.src="image/Page6/blue_background.png";
+
+            console.log("check-VR");
+            break;
+        case 7:
+            resultImage.src="image/Page6/blue_background.png";
+
+            console.log("check-VK");
+            break;    
+        case 8:
+            resultImage.src="image/Page6/blue_background.png";
+            console.log("check-AR");
+            break;
+        case 9:
+            resultImage.src="image/Page6/blue_background.png";
+            console.log("check-AK");
+            break;
+        case 10:
+            resultImage.src="image/Page6/blue_background.png";
+            console.log("check-KR");
+            break;
+        case 11:
+            resultImage.src="image/Page6/blue_background.png";
+            console.log("check-VAR");
+            break;
+        case 12:
+            resultImage.src="image/Page6/blue_background.png";
+            console.log("check-VAK");
+            break;
+        case 13:
+            resultImage.src="image/Page6/blue_background.png";
+            console.log("check-VRK");
+            break;
+        case 14:
+            resultImage.src="image/Page6/blue_background.png";
+            console.log("check-ARK");
+            break;    
+        case 15:
+            resultImage.src="image/Page6/blue_background.png";
+            console.log("check-VARK");
+            break;    
     
+    }
+
 }
+
+
+// 聲音相關處理，切換 icon 和 音樂停放
+let FadeLapse = 50;
+let FadeUnit = FadeLapse/500;
+
+function AudioSwitch(){
+    let Soundon = document.querySelector(".on");
+    let Soundoff = document.querySelector(".off");
+    let music = document.getElementsByClassName("BGM");
+    disableAudioButton();
+    Soundon.classList.toggle("hide");
+    Soundoff.classList.toggle("hide");
+    if(music[NowMusic].volume == 1){
+        Mute = true;
+        AudioMinus();
+    }
+    else if(music[NowMusic].volume == 0){
+        Mute = false;
+        AudioAdds();
+        music[NowMusic].play();
+        console.log("RealPlay");
+    }
+}
+
+
+function AudioMinus(){
+    let music = document.getElementsByClassName("BGM");
+    if(music[NowMusic].volume>=FadeUnit){
+        music[NowMusic].volume = music[NowMusic].volume - FadeUnit;
+        setTimeout(AudioMinus,FadeLapse);
+        console.log("FadeOut");
+        }
+    else{
+        music[NowMusic].volume=0;
+        enableAudioButton();
+    }
+}
+function AudioAdds(){
+    let music = document.getElementsByClassName("BGM");
+    if(music[NowMusic].volume<= 1-FadeUnit){
+        music[NowMusic].volume = music[NowMusic].volume + FadeUnit;
+        setTimeout(AudioAdds,FadeLapse);
+        console.log("FadeIn");
+    }
+    else{
+        music[NowMusic].volume=1;
+        enableAudioButton();
+    }
+}
+
+function MusicNext(){
+    disableAudioButton();
+    MusicFadeOut();
+}
+
+function MusicFadeOut(){
+    let music = document.getElementsByClassName("BGM");
+    if(music[NowMusic].volume>=FadeUnit){
+        music[NowMusic].volume = music[NowMusic].volume - FadeUnit;
+        setTimeout(MusicFadeOut,FadeLapse);
+        console.log("FadeOut");
+        }
+    else{
+        music[NowMusic].volume=0;
+        if(Mute != true){
+            music[NowMusic+1].play();
+        }
+        MusicFadeIn();
+    }
+
+}
+
+function MusicFadeIn(){
+    let music = document.getElementsByClassName("BGM");
+    if(music[NowMusic+1].volume<= 1-FadeUnit){
+        music[NowMusic+1].volume = music[NowMusic+1].volume + FadeUnit;
+        setTimeout(MusicFadeIn,FadeLapse);
+        console.log("FadeIn");
+    }
+    else{
+        if(Mute != true){
+            music[NowMusic+1].volume=1;
+        }
+        else{
+            music[NowMusic+1].volume=0;
+        }
+        NowMusic++;
+        enableAudioButton();
+    }
+
+}
+// 特殊音效播放
+function SFX01_Play(){
+    let SFX = document.querySelector(".SFX01");
+    SFX.volume=0.8;
+    if(Mute!= true){
+        SFX.play();
+    }
+}
+
+function SFX02_Play(){
+    let SFX = document.querySelector(".SFX02");
+    SFX.volume=0.8;
+    if(Mute!= true){
+        SFX.play();
+    }
+}
+
