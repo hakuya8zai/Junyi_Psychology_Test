@@ -5,14 +5,16 @@ body {
 }
 
 .App {
-  position: fixed;
+  position: absolute;
   width: 375px;
   height: 667px;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  margin: auto;
+  margin: auto; 
+  overflow: scroll;
+
 }
 
 
@@ -238,6 +240,7 @@ body {
 /*---以下是特別樣式區（做各種微調）---*/
 
 /*---載入頁樣式區---*/
+
 .Page0.Description {
   font-size: 4rem;
   margin-top: 65%;

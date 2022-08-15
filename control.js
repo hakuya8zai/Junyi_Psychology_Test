@@ -1,4 +1,9 @@
 window.onload = function(){
+    verticleRWD();
+    let height = innerHeight;
+    window.addEventListener("resize", () =>{
+        height = window.innerHeight;
+    })
     setButton();
     ChangePage();
 }
@@ -486,6 +491,37 @@ function SFX02_Play(){
     SFX.volume=0.8;
     if(Mute!= true){
         SFX.play();
+    }
+}
+
+function verticleRWD(){
+    if(window.innerWidth<=375){
+
+        if(window.innerHeight<=667){
+            document.getElementById("App").style.top = 0;
+            document.getElementById("App").style.bottom = 0;
+            document.getElementById("App").style.left = 0;
+            document.getElementById("App").style.right = 0;
+
+            document.getElementById("App").style.margin = 0;
+            }
+        else{
+            document.getElementById("App").style.left = 0;
+            document.getElementById("App").style.right = 0;
+            document.getElementById("App").style.margin =("auto 0");
+    
+        }
+    
+    }
+    else{
+        if(window.innerHeight<=667){
+            document.getElementById("App").style.top = 0;
+            document.getElementById("App").style.bottom = 0;
+            document.getElementById("App").style.margin = ("0 auto");
+        }
+        else{
+            document.getElementById("App").style.margin = ("auto");
+        }
     }
 }
 
