@@ -6,6 +6,7 @@ window.onload = function(){
     })
     setButton();
     ChangePage();
+    ResetAudio();
 }
 
 
@@ -98,6 +99,17 @@ function afterChoose(){
     disableButton();
     PageTransition();
 }
+//開啟時，將音量預設為0
+function ResetAudio(){
+    let music = document.getElementsByClassName("BGM");
+    music[0].volume = 0;
+    console.log(music[0].volume);
+    console.log(music[1].volume);
+    console.log(music[2].volume);
+    console.log(music[3].volume);
+
+}
+
 
 //讓按鈕不可被點擊
 function disableButton(){
