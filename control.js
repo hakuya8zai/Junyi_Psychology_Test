@@ -68,7 +68,9 @@ function setButton(){
         music[s].volume = 0;
     }
     Soundon[0].addEventListener("click",AudioSwitch);
+    console.log(Soundon[0]);
     Soundoff[0].addEventListener("click",AudioSwitch);
+    console.log(Soundon[0]);
 }
 
 function addScoreV(){
@@ -413,6 +415,7 @@ function AudioSwitch(){
 
 function AudioMinus(){
     let music = document.getElementsByClassName("BGM");
+        console.log("FadeOutCalled");
     if(music[NowMusic].volume>=FadeUnit){
         music[NowMusic].volume = music[NowMusic].volume - FadeUnit;
         setTimeout(AudioMinus,FadeLapse);
@@ -421,6 +424,7 @@ function AudioMinus(){
     else{
         music[NowMusic].volume=0;
         enableAudioButton();
+        console.log("FadeOut2")
     }
 }
 function AudioAdds(){
@@ -509,7 +513,6 @@ function verticleRWD(){
             document.getElementById("App").style.left = 0;
             document.getElementById("App").style.right = 0;
             document.getElementById("App").style.margin =("auto 0");
-    
         }
     
     }
