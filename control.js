@@ -70,7 +70,7 @@ function setButton(){
     Soundon[0].addEventListener("click",AudioSwitch);
     console.log(Soundon[0]);
     Soundoff[0].addEventListener("click",AudioSwitch);
-    console.log(Soundon[0]);
+    console.log(Soundoff[0]);
 }
 
 function addScoreV(){
@@ -394,12 +394,17 @@ let FadeLapse = 50;
 let FadeUnit = FadeLapse/500;
 
 function AudioSwitch(){
+    console.log("AudioSwitchCalled")
     let Soundon = document.querySelector(".on");
     let Soundoff = document.querySelector(".off");
+    console.log(Soundon);
+    console.log(Soundoff);
     let music = document.getElementsByClassName("BGM");
     disableAudioButton();
+    console.log("disabled");
     Soundon.classList.toggle("hide");
     Soundoff.classList.toggle("hide");
+    console.log(music[NowMusic].volume);
     if(music[NowMusic].volume == 1){
         Mute = true;
         AudioMinus();
