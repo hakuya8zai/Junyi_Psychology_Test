@@ -6,7 +6,6 @@ window.onload = function(){
     })
     setButton();
     ChangePage();
-    ResetAudio();
 }
 
 
@@ -98,16 +97,6 @@ function addScoreK(){
 function afterChoose(){
     disableButton();
     PageTransition();
-}
-//開啟時，將音量預設為0
-function ResetAudio(){
-    let music = document.getElementsByClassName("BGM");
-    music[0].volume = 0;
-    console.log(music[0].volume);
-    console.log(music[1].volume);
-    console.log(music[2].volume);
-    console.log(music[3].volume);
-
 }
 
 
@@ -417,11 +406,13 @@ function AudioSwitch(){
     Soundon.classList.toggle("hide");
     Soundoff.classList.toggle("hide");
     console.log(music[NowMusic].volume);
-    if(music[NowMusic].volume == 1){
+    console.log(music[NowMusic]);
+    console.log(music[0]);
+    if(music[NowMusic].volume === 1){
         Mute = true;
         AudioMinus();
     }
-    else if(music[NowMusic].volume == 0){
+    else if(music[NowMusic].volume === 0){
         Mute = false;
         AudioAdds();
         music[NowMusic].play();
