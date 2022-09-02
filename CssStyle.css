@@ -430,6 +430,48 @@ body {
   max-height: 100%;
 }
 
+.Page9 > .TopHint{
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 25px;
+  z-index: 5;
+}
+.CTAButton{
+  position: relative;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 545px;
+  width: 60%;
+  height: 50px;
+  z-index: 6;
+}
+.CTAButton2{
+  position: relative;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 545px;
+  width: 100%;
+  height: 50px;
+  z-index: 6;
+}
+
+.Page9 > .FingerPoint{
+  position: relative;
+  background-color: yellow;
+  top: 445px;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+  z-index: 7;
+}
+.TopHint > span{
+  text-align: center;
+  color: white;
+  font-size: 0.9rem;
+}
 
 
 .Finalscore {
