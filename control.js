@@ -190,6 +190,11 @@ function ChangePage(){
     if(newButton!=null){
         newbackgroud_image.classList.toggle("transIn");        
     }
+    // let lastPageCTA = newThings.querySelector(".CTA");
+    // if(NowPage==8){
+    //     lastPageCTA.classList.toggle("transIn");        
+    // }
+
 
 }
 
