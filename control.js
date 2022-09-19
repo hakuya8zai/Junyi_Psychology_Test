@@ -205,12 +205,6 @@ function FinalScore(){
         let ScoreBoard = document.querySelector(".Finalscore");
         ScoreBoard.classList.toggle("hide");
 
-        //把四個的分數寫出來
-        //ScoreBoard.querySelector(".Vscore").innerHTML = "V得分："+Visual_score;
-        //ScoreBoard.querySelector(".Ascore").innerHTML = "A得分："+Aural_score;
-        //ScoreBoard.querySelector(".Rscore").innerHTML = "R得分："+ReadWrite_score;
-        //ScoreBoard.querySelector(".Kscore").innerHTML = "K得分："+Kinesthetic_score;
-
         //下面是計算最高分的項目
         let Result = Math.max(Visual_score, Aural_score, ReadWrite_score, Kinesthetic_score);
 
@@ -308,14 +302,6 @@ function FinalScore(){
 
 }
 
-// 這個不知道幹嘛的，應該是之前要拿來做動畫的效果
-// function LoadOver(){
-//     let oldThings = document.querySelector(".Page"+NowPage);
-//     oldThings.classList.toggle("hide");
-//     NowPage++;
-//     let newThings = document.querySelector(".Page"+NowPage);
-//     newThings.classList.toggle("hide");    
-// }
 
 // 根據 CaseID，將結尾頁用 switch 顯示為指定的頁面
 function ResultPage(){

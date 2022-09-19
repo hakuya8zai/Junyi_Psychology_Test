@@ -447,7 +447,9 @@ body {
   height: 50px;
   z-index: 6;
 }
+
 /* footer banner 位置 CTA 的 樣式，但目前此區域不需要 CTA ，故 comment 掉 */
+/* To Do : 之後因應專案調整啟用 */
 /* .CTAButton2{
   position: relative;
   left: 0;
@@ -485,21 +487,6 @@ body {
   padding-top: 1%;
   padding-bottom: 1%;
 }
-
-
-/* 下面這段是原本的 vark 能力圖 */
-/* .Capability_Map {
-  width: 250px;
-  height: 250px;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(0, 0, 255, 0.212);
-  border-color: black;
-  border-width: 10px;
-}
-.Capability_Map.After {
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-} */
 
 .Vscore,
 .Ascore,
