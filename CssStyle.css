@@ -282,13 +282,13 @@ body {
 }
 
 .Page2.Question {
-  color: rgb(94, 94, 94);
+  color: rgb(45, 45, 45);
 }
 .Page2 .line1 {
-  color: rgb(94, 94, 94);
+  color: rgb(45, 45, 45);
 }
 .Page2 .line2 {
-  color: rgb(94, 94, 94);
+  color: rgb(45, 45, 45);
 }
 .Page2.background_image_layer1 {
   transform: translate(-40%, 0);
@@ -387,6 +387,12 @@ body {
   left: 50%;
   transform: translateX(-50%);
 }
+.Page8.Question {
+  color: rgb(255, 242, 242);
+}
+.Page8.Description {
+  color: rgb(60, 60, 60);
+}
 
 /*---結算頁樣式區---*/
 
@@ -433,8 +439,11 @@ body {
 .Page9 > .TopHint{
   position: relative;
   background-color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  letter-spacing: 10px;
+  font-size: 16px;
   width: 100%;
-  height: 25px;
+  height: 30px;
   z-index: 5;
 }
 .CTAButton{
@@ -474,6 +483,11 @@ body {
   text-align: center;
   color: white;
   font-size: 0.9rem;
+}
+
+.FingerPoint > img{
+  transform: rotate(90deg);
+  animation: Finger 0.5s ease-in-out infinite alternate-reverse;
 }
 
 
@@ -545,4 +559,14 @@ body {
   100% {
     transform: translate(-100%, 0);
   }
+}
+
+/* CTA 手指動畫 */
+@keyframes Finger{
+0% {
+  transform: translate(-20%,0) rotate(90deg);
+}
+100% {
+  transform: translate(40%,0) rotate(90deg);
+}
 }

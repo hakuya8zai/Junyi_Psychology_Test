@@ -202,8 +202,6 @@ function ChangePage(){
 
 function FinalScore(){
     if(NowPage==8){
-        let ScoreBoard = document.querySelector(".Finalscore");
-        ScoreBoard.classList.toggle("hide");
 
         //下面是計算最高分的項目
         let Result = Math.max(Visual_score, Aural_score, ReadWrite_score, Kinesthetic_score);
