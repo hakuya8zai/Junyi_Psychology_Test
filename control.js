@@ -547,8 +547,8 @@ function verticleRWD(){
     }
 }
 
+// 分頁面載入發現做不到 哭啊
 let i = 0;
-// 分頁面載入
 function QueueLode(){
     // 每一頁載完後進入下一頁
         let AllImagePage = document.getElementsByClassName("Page"+i);
@@ -589,6 +589,3 @@ function QueueLode(){
 
 }
 
-function SrcQueue(){
-    
-}
