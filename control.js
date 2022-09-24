@@ -5,7 +5,7 @@ window.onload = function(){
         height = window.innerHeight;
     })
     setButton();
-    ChangePage();
+    LoadOver();
 }
 
 
@@ -13,7 +13,7 @@ let Visual_score = 0;
 let Aural_score = 0;
 let ReadWrite_score = 0;
 let Kinesthetic_score = 0;
-let NowPage = 0;
+let NowPage = -1;
 let NowMusic = 0;
 let CaseID = 0;
 let Mute = true;
@@ -22,16 +22,14 @@ let Mute = true;
 // 找到每個按鈕並套上事件
 function setButton(){
     let Button_addV = document.getElementsByClassName("ButtonV");
-    Button_addV[NowPage].addEventListener("click",addScoreV);
     let Button_addA = document.getElementsByClassName("ButtonA");
-    Button_addA[NowPage].addEventListener("click",addScoreA);
     let Button_addR = document.getElementsByClassName("ButtonR");
-    Button_addR[NowPage].addEventListener("click",addScoreR);
     let Button_addK = document.getElementsByClassName("ButtonK");
-    Button_addK[NowPage].addEventListener("click",addScoreK);
+    let Button_Start = document.querySelector(".ButtonStart");
     let Soundon = document.getElementsByClassName("on");
     let Soundoff = document.getElementsByClassName("off");    
-
+    console.log(Button_Start);
+    Button_Start.addEventListener("click",ChangePage);
     for(let i=0; i<Button_addA.length;i++){
         Button_addV[i].addEventListener("click",addScoreV);
         Button_addA[i].addEventListener("click",addScoreA);
@@ -102,27 +100,36 @@ function afterChoose(){
 
 //讓按鈕不可被點擊
 function disableButton(){
+    let disabled_ButtonStart = document.querySelector(".ButtonStart");
     let disabled_ButtonV = document.querySelector((".Page"+NowPage)+".ButtonV");
     let disabled_ButtonA = document.querySelector((".Page"+NowPage)+".ButtonA");
     let disabled_ButtonR = document.querySelector((".Page"+NowPage)+".ButtonR");
     let disabled_ButtonK = document.querySelector((".Page"+NowPage)+".ButtonK");
 
-    disabled_ButtonV.disabled = true;
-    disabled_ButtonA.disabled = true;
-    disabled_ButtonR.disabled = true;
-    disabled_ButtonK.disabled = true;
+    if(disabled_ButtonA!=null){
+        disabled_ButtonStart.disabled = true;
+        disabled_ButtonV.disabled = true;
+        disabled_ButtonA.disabled = true;
+        disabled_ButtonR.disabled = true;
+        disabled_ButtonK.disabled = true;    
+    }
 }
 //讓按鈕可被點擊
 function enableButton(){
+    let disabled_ButtonStart = document.querySelector(".ButtonStart");
     let disabled_ButtonV = document.querySelector((".Page"+NowPage)+".ButtonV");
     let disabled_ButtonA = document.querySelector((".Page"+NowPage)+".ButtonA");
     let disabled_ButtonR = document.querySelector((".Page"+NowPage)+".ButtonR");
     let disabled_ButtonK = document.querySelector((".Page"+NowPage)+".ButtonK");
 
-    disabled_ButtonV.disabled = false;
-    disabled_ButtonA.disabled = false;
-    disabled_ButtonR.disabled = false;
-    disabled_ButtonK.disabled = false;
+    if(disabled_ButtonA!=null){
+        disabled_ButtonStart.disabled = false;
+        disabled_ButtonV.disabled = false;
+        disabled_ButtonA.disabled = false;
+        disabled_ButtonR.disabled = false;
+        disabled_ButtonK.disabled = false;    
+    }
+
 }
 //讓音量按鈕不可被點擊
 function disableAudioButton(){
@@ -143,6 +150,17 @@ function enableAudioButton(){
 
 }
 
+// 載入完成，從載入頁切換到開始頁面
+function LoadOver(){
+    let oldPage = document.querySelector(".PageLoading");
+    oldPage.classList.toggle("hide");
+    let oldDescription = oldPage.querySelector(".Description");
+    oldDescription.classList.toggle("transOut");
+    let oldbackgroud_image = oldPage.querySelector(".background_image");
+    oldbackgroud_image.classList.toggle("transOut");
+
+    ChangePage();
+}
 
 function PageTransition(){
     let oldPage = document.querySelector(".Page"+NowPage);
@@ -161,7 +179,9 @@ function PageTransition(){
 
 function ChangePage(){
     let oldThings = document.querySelector(".Page"+NowPage);
-    oldThings.classList.toggle("hide");
+    if(oldThings!=null){
+        oldThings.classList.toggle("hide");
+    }
     NowPage++;
     console.log(NowPage);
     if(NowPage!=9){

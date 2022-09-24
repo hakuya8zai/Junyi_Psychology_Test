@@ -32,6 +32,7 @@ body {
   box-shadow: none;
 }
 
+.PageLoading,
 .Page0,
 .Page1,
 .Page2,
@@ -241,19 +242,32 @@ body {
 
 /*---載入頁樣式區---*/
 
-.Page0.Description {
+.PageLoading.Description {
   font-size: 4rem;
   margin-top: 65%;
   font-weight: 700;
   color: rgba(0, 0, 0, 0.699);
 }
-.Page0.background_image_layer5 {
+.PageLoading.background_image_layer5 {
   bottom: 50%;
   margin-left: 50%;
   transform: translate(-25%, -25%);
 }
-.Page0.background_image_layer1 {
+.PageLoading.background_image_layer1 {
   opacity: 0.6;
+}
+/* 開始頁樣式區 */
+.ButtonStart{
+  width: 92%;
+  margin: 0px 4%;
+  padding: 0px 15px;
+  height: 80px;
+  color: rgb(40, 40, 40);
+  background-color: hsla(0, 0%, 100%, 0.8);
+  font-size: 1.5rem;
+  border: 0ch;
+  box-shadow: none;
+
 }
 /*---第一頁樣式區---*/
 .Page1.background_image_layer5 {
