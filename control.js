@@ -1,3 +1,4 @@
+
 window.onload = function(){
     verticleRWD();
     let height = innerHeight;
@@ -6,6 +7,7 @@ window.onload = function(){
     })
     setButton();
     LoadOver();
+    QueueLode();
 }
 
 
@@ -545,3 +547,48 @@ function verticleRWD(){
     }
 }
 
+let i = 0;
+// 分頁面載入
+function QueueLode(){
+    // 每一頁載完後進入下一頁
+        let AllImagePage = document.getElementsByClassName("Page"+i);
+        // 下面是取得第 i 頁的所有圖片
+        let LoadPageImage = AllImagePage[0].getElementsByTagName("img");
+        console.log("第"+i+"頁圖片有" + LoadPageImage.length);
+        let k = 0;
+        for(let j=0;j<LoadPageImage.length;j++){
+            if(LoadPageImage[j].complete==true){
+                k = k+1;
+                console.log("第"+i+LoadPageImage[j].complete);
+                if(LoadPageImage.length == k){
+                        console.log("第"+i+"頁載入完成");
+                        i++;
+                        if(i<9){
+                            QueueLode();
+                        }
+                        let TestChangeSrc = document.getElementsByClassName("Page0");
+                        let TheChangeSrc = TestChangeSrc[0].getElementsByTagName("img");
+                        TheChangeSrc[0].src ="image/Others/NiceScene.png";
+                }
+            }
+            else{
+                LoadPageImage[j].addEventListener("load",() => {
+                    k = k+1;
+                    if(LoadPageImage.length == k){
+                        console.log("第"+i+"頁載入完成");
+                        i++;
+                        if(i<9){
+                            QueueLode();
+                        }
+                    }
+                });
+
+            }
+        }
+
+
+}
+
+function SrcQueue(){
+    
+}
