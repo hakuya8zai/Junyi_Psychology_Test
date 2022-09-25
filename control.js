@@ -605,33 +605,42 @@ function ImageList(LoadingImage){
         TheChangeImg[0].src ="image/Page1/background.png";
         TheChangeImg[1].src ="image/Page1/smallstar.png";
         TheChangeImg[2].src ="image/Page1/bigstar.png";
+        TheChangeImg[3].src ="image/Page1/cloud.png";
         TheChangeImg[4].src ="image/Page1/foxycat_liedown.png";
     }
     else if (LoadingImage ==2){
-        console.log(TheChangeImg);
+        TheChangeImg[0].src ="image/Page2/farm.png";
+        TheChangeImg[1].src ="image/Page2/foxycat_reading.png";
     }
     else if (LoadingImage ==3){
-        console.log(TheChangeImg);
+        TheChangeImg[0].src ="image/Page3/computer_background.png";
+        TheChangeImg[1].src ="image/Page3/Page3_Insert.gif";
+        TheChangeImg[2].src ="image/Page3/computer.png";
 
     }
     else if (LoadingImage ==4){
-        console.log(TheChangeImg);
+        TheChangeImg[0].src ="image/Page3/computer_background.png";
+        TheChangeImg[1].src ="image/Page4/foxycat_look.png";
 
     }
     else if (LoadingImage ==5){
-        console.log(TheChangeImg);
+        TheChangeImg[0].src ="image/Page5/bg_moon_earth.jpg";
+        TheChangeImg[4].src ="image/Page5/Foxycat_shock.png";
 
     }
     else if (LoadingImage ==6){
-        console.log(TheChangeImg);
+        TheChangeImg[0].src ="image/Page6/bg_school_room.jpg";
+        TheChangeImg[1].src ="image/Page6/teacher.png";
 
     }
     else if (LoadingImage ==7){
-        console.log(TheChangeImg);
+        TheChangeImg[0].src ="image/Page7/bg_stage.png";
+        TheChangeImg[1].src ="image/Page7/foxycat_withpad.png";
 
     }
     else if (LoadingImage ==8){
-        console.log(TheChangeImg);
+        TheChangeImg[0].src ="image/Page8/bg_road.png";
+        TheChangeImg[4].src ="image/Page8/foxycat_withQuestionMark.png";
 
     }
 
