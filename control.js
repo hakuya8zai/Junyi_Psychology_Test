@@ -547,45 +547,93 @@ function verticleRWD(){
     }
 }
 
-// 分頁面載入發現做不到 哭啊
-let i = 0;
+// 分頁面載入
+let pageCount = 0;
 function QueueLode(){
     // 每一頁載完後進入下一頁
-        let AllImagePage = document.getElementsByClassName("Page"+i);
+        let AllImagePage = document.getElementsByClassName("Page"+pageCount);
+        console.log("現在開始抓第"+pageCount+"頁的Queue");
         // 下面是取得第 i 頁的所有圖片
         let LoadPageImage = AllImagePage[0].getElementsByTagName("img");
-        console.log("第"+i+"頁圖片有" + LoadPageImage.length);
+        console.log("第"+pageCount+"頁圖片有" + LoadPageImage.length);
+        //當頁已載完數量
         let k = 0;
-        for(let j=0;j<LoadPageImage.length;j++){
-            if(LoadPageImage[j].complete==true){
+        //載圖片，直到滿當頁數量
+        for(let pageCountNow=0;pageCountNow<LoadPageImage.length;pageCountNow++){
+            //判斷這張圖片載完了沒
+            if(LoadPageImage[pageCountNow].complete==true){
                 k = k+1;
-                console.log("第"+i+LoadPageImage[j].complete);
+                console.log("第"+pageCount+LoadPageImage[pageCountNow].complete);
+                //每當圖片載完，判斷這整頁圖片載完了沒，載完就進入下一頁
                 if(LoadPageImage.length == k){
-                        console.log("第"+i+"頁載入完成");
-                        i++;
-                        if(i<9){
-                            QueueLode();
-                        }
-                        let TestChangeSrc = document.getElementsByClassName("Page0");
-                        let TheChangeSrc = TestChangeSrc[0].getElementsByTagName("img");
-                        TheChangeSrc[0].src ="image/Others/NiceScene.png";
+                    console.log("第"+pageCount+"頁載入完成");
+                    pageCount=pageCount+1;
+                    //檢查是不是最後一頁
+                    if(pageCount<9){
+                        //如果全部都載完，呼叫載入下一頁圖片的 funtion
+                        ImageList(pageCount);
+                        //如果全部都載完，進入下一頁的檢查
+                        QueueLode();
+                    }
                 }
             }
             else{
-                LoadPageImage[j].addEventListener("load",() => {
+                LoadPageImage[pageCountNow].addEventListener("load",() => {
                     k = k+1;
                     if(LoadPageImage.length == k){
-                        console.log("第"+i+"頁載入完成");
-                        i++;
-                        if(i<9){
+                        console.log("第"+pageCount+"頁載入完成");
+                        pageCount=pageCount+1;
+                        if(pageCount<9){
+                            ImageList(pageCount);    
                             QueueLode();
                         }
-                    }
+                    }                    
                 });
 
             }
         }
+}
 
+function ImageList(LoadingImage){
+    console.log(LoadingImage+"開始Loading");
+    let ChangeSrcPage = document.getElementsByClassName("Page"+LoadingImage);
+    //抓取底下有 img tag 的變陣列
+    let TheChangeImg = ChangeSrcPage[0].getElementsByTagName("img");
+    if(LoadingImage ==0){
+    }
+    else if (LoadingImage ==1){
+        TheChangeImg[0].src ="image/Page1/background.png";
+        TheChangeImg[1].src ="image/Page1/smallstar.png";
+        TheChangeImg[2].src ="image/Page1/bigstar.png";
+        TheChangeImg[4].src ="image/Page1/foxycat_liedown.png";
+    }
+    else if (LoadingImage ==2){
+        console.log(TheChangeImg);
+    }
+    else if (LoadingImage ==3){
+        console.log(TheChangeImg);
+
+    }
+    else if (LoadingImage ==4){
+        console.log(TheChangeImg);
+
+    }
+    else if (LoadingImage ==5){
+        console.log(TheChangeImg);
+
+    }
+    else if (LoadingImage ==6){
+        console.log(TheChangeImg);
+
+    }
+    else if (LoadingImage ==7){
+        console.log(TheChangeImg);
+
+    }
+    else if (LoadingImage ==8){
+        console.log(TheChangeImg);
+
+    }
 
 }
 
