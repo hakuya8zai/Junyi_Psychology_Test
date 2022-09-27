@@ -641,6 +641,8 @@ function ImageList(LoadingImage){
     else if (LoadingImage ==8){
         TheChangeImg[0].src ="image/Page8/bg_road.png";
         TheChangeImg[4].src ="image/Page8/foxycat_withQuestionMark.png";
+        let thePointer = document.getElementsByClassName("FingerPoint");
+        thePointer[0].src ="./image/Result/computer_cursor_finger_white.png";
 
     }
 
