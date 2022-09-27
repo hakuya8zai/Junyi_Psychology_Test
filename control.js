@@ -609,12 +609,10 @@ function ImageList(LoadingImage){
         TheChangeImg[4].src ="image/Page1/foxycat_liedown.png";
     }
     else if (LoadingImage ==2){
-        TheChangeImg[0].src ="image/Page2/farm.png";
         TheChangeImg[1].src ="image/Page2/foxycat_reading.png";
     }
     else if (LoadingImage ==3){
         TheChangeImg[0].src ="image/Page3/computer_background.png";
-        TheChangeImg[1].src ="image/Page3/Page3_Insert.gif";
         TheChangeImg[2].src ="image/Page3/computer.png";
 
     }
