@@ -599,6 +599,7 @@ function ImageList(LoadingImage){
     let ChangeSrcPage = document.getElementsByClassName("Page"+LoadingImage);
     //抓取底下有 img tag 的變陣列
     let TheChangeImg = ChangeSrcPage[0].getElementsByTagName("img");
+    let TheChangeBGM = document.getElementsByClassName("BGM");
     if(LoadingImage ==0){
     }
     else if (LoadingImage ==1){
@@ -629,6 +630,7 @@ function ImageList(LoadingImage){
     else if (LoadingImage ==6){
         TheChangeImg[0].src ="image/Page6/bg_school_room.jpg";
         TheChangeImg[1].src ="image/Page6/teacher.png";
+        TheChangeBGM[3].src ="sound/04_DorrisDay.mp3";
 
     }
     else if (LoadingImage ==7){
