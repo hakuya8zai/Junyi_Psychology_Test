@@ -611,6 +611,7 @@ function ImageList(LoadingImage){
     }
     else if (LoadingImage ==2){
         TheChangeImg[1].src ="image/Page2/foxycat_reading.png";
+        TheChangeBGM[1].src ="sound/02_FunHouseTrap.mp3";
     }
     else if (LoadingImage ==3){
         TheChangeImg[0].src ="image/Page3/computer_background.png";
@@ -620,6 +621,7 @@ function ImageList(LoadingImage){
     else if (LoadingImage ==4){
         TheChangeImg[0].src ="image/Page3/computer_background.png";
         TheChangeImg[1].src ="image/Page4/foxycat_look.png";
+        TheChangeBGM[2].src ="sound/03_DeadForest.mp3";
 
     }
     else if (LoadingImage ==5){
