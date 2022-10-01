@@ -8,6 +8,7 @@ window.onload = function(){
     setButton();
     LoadOver();
     QueueLode();
+    CheckSoundEnvironment();
 }
 
 
@@ -19,6 +20,20 @@ let NowPage = -1;
 let NowMusic = 0;
 let CaseID = 0;
 let Mute = true;
+let CanControlVolume = true;
+
+// 測試是否可以控制音量
+function CheckSoundEnvironment(){
+    let music = document.getElementsByClassName("BGM");
+    music[3].volume = music[3].volume +0.5;
+    if(music[3].volume == 0.5){
+        CanControlVolume = true;
+        music[3].volume = 0;
+    }
+    else{
+        CanControlVolume = false;
+    }
+}
 
 
 // 找到每個按鈕並套上事件
@@ -67,6 +82,7 @@ function setButton(){
     for(let s=0;s<music.length;s++){
         music[s].volume = 0;
     }
+    CheckSoundEnvironment();
     Soundon[0].addEventListener("click",AudioSwitch);
     console.log(Soundon[0]);
     Soundoff[0].addEventListener("click",AudioSwitch);
@@ -404,97 +420,109 @@ function ResultPage(){
 // 聲音相關處理，切換 icon 和 音樂停放
 let FadeLapse = 50;
 let FadeUnit = FadeLapse/500;
+let FadeCount = 10;
 
 function AudioSwitch(){
+    FadeCount = 10;
     console.log("AudioSwitchCalled")
     let Soundon = document.querySelector(".on");
     let Soundoff = document.querySelector(".off");
-    console.log(Soundon);
-    console.log(Soundoff);
     let music = document.getElementsByClassName("BGM");
     disableAudioButton();
-    console.log("disabled");
     Soundon.classList.toggle("hide");
     Soundoff.classList.toggle("hide");
-    console.log(music[NowMusic].volume);
-    console.log(music[NowMusic]);
-    console.log(music[0]);
-    if(music[NowMusic].volume === 1){
+    console.log(music[NowMusic].paused);
+    if(music[NowMusic].paused == false){
         Mute = true;
         AudioMinus();
+        console.log("playtrue");
     }
-    else if(music[NowMusic].volume === 0){
+    else if(music[NowMusic].paused == true){
         Mute = false;
-        AudioAdds();
         music[NowMusic].play();
-        console.log("RealPlay");
+        AudioAdds();
+        console.log("playfalse");
     }
 }
 
 
 function AudioMinus(){
     let music = document.getElementsByClassName("BGM");
-        console.log("FadeOutCalled");
-    if(music[NowMusic].volume>=FadeUnit){
-        music[NowMusic].volume = music[NowMusic].volume - FadeUnit;
-        setTimeout(AudioMinus,FadeLapse);
-        console.log("FadeOut");
+    if(FadeCount > 0 && CanControlVolume == true){
+        if(music[NowMusic].volume>= FadeUnit){
+            music[NowMusic].volume = music[NowMusic].volume - FadeUnit;
         }
-    else{
-        music[NowMusic].volume=0;
-        enableAudioButton();
-        console.log("FadeOut2")
+        setTimeout(AudioMinus,FadeLapse);
+        FadeCount = FadeCount-1;
     }
+    else{
+        music[NowMusic].pause();
+        enableAudioButton();
+    }
+
 }
 function AudioAdds(){
     let music = document.getElementsByClassName("BGM");
-    if(music[NowMusic].volume<= 1-FadeUnit){
-        music[NowMusic].volume = music[NowMusic].volume + FadeUnit;
+    if(FadeCount > 0 && CanControlVolume == true){
+        if(music[NowMusic].volume < 1-FadeUnit){
+            music[NowMusic].volume = music[NowMusic].volume + FadeUnit;
+        }
         setTimeout(AudioAdds,FadeLapse);
-        console.log("FadeIn");
+        FadeCount = FadeCount-1;
     }
     else{
-        music[NowMusic].volume=1;
         enableAudioButton();
     }
 }
 
 function MusicNext(){
     disableAudioButton();
+    FadeCount = 10;
     MusicFadeOut();
 }
 
 function MusicFadeOut(){
     let music = document.getElementsByClassName("BGM");
-    if(music[NowMusic].volume>=FadeUnit){
-        music[NowMusic].volume = music[NowMusic].volume - FadeUnit;
+    if(FadeCount > 0 && CanControlVolume == true){
+        if(music[NowMusic].volume>= FadeUnit){
+            music[NowMusic].volume = music[NowMusic].volume - FadeUnit;
+            console.log("mysound = "+music[NowMusic].volume);
+        }
+        else{
+            music[NowMusic].volume = 0;
+        }
+        FadeCount = FadeCount-1;
         setTimeout(MusicFadeOut,FadeLapse);
-        console.log("FadeOut");
         }
     else{
-        music[NowMusic].volume=0;
+        music[NowMusic].pause();
         if(Mute != true){
+            music[NowMusic+1].volume = 0;
             music[NowMusic+1].play();
+            FadeCount = 10;
+            MusicFadeIn();
         }
-        MusicFadeIn();
+        else{
+            NowMusic++;
+            enableAudioButton();    
+        }
     }
 
 }
 
 function MusicFadeIn(){
     let music = document.getElementsByClassName("BGM");
-    if(music[NowMusic+1].volume<= 1-FadeUnit){
-        music[NowMusic+1].volume = music[NowMusic+1].volume + FadeUnit;
-        setTimeout(MusicFadeIn,FadeLapse);
-        console.log("FadeIn");
-    }
-    else{
-        if(Mute != true){
-            music[NowMusic+1].volume=1;
+    if(FadeCount >0 && CanControlVolume == true){
+        if(music[NowMusic].volume < 1-FadeUnit){
+            music[NowMusic+1].volume = music[NowMusic+1].volume + FadeUnit;
         }
         else{
-            music[NowMusic+1].volume=0;
+            music[NowMusic+1].volume = 1;
         }
+        setTimeout(MusicFadeIn,FadeLapse);
+        FadeCount = FadeCount-1;
+    }
+    else{
         NowMusic++;
         enableAudioButton();
     }
@@ -644,8 +672,8 @@ function ImageList(LoadingImage){
         TheChangeImg[0].src ="image/Page8/bg_road.png";
         TheChangeImg[4].src ="image/Page8/foxycat_withQuestionMark.png";
         let thePointer = document.getElementsByClassName("FingerPoint");
-        thePointer[0].src ="./image/Result/computer_cursor_finger_white.png";
-
+        let thePointerImg = thePointer[0].getElementsByTagName("img");
+        thePointerImg[0].src ="image/Result/computer_cursor_finger_white.png";
     }
 
 }

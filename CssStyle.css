@@ -30,7 +30,12 @@ body {
   background-color: rgba(197, 197, 197, 0.2);
   color: rgb(255, 255, 255);
   box-shadow: none;
+}
+.material-icons.on{
   animation: AudioBreath 2s alternate-reverse infinite ease-out;
+}
+.material-icons.off{
+  animation: none;
 }
 
 .PageLoading,
@@ -618,7 +623,7 @@ body {
     background-color: rgba(197, 197, 197, 0.2);
   }
   100%{
-    background-color: rgba(197, 197, 197, 1.0);
+    background-color: rgba(197, 197, 197, 0.8);
   }
 
 }
