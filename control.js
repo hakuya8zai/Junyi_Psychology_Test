@@ -431,9 +431,14 @@ function AudioSwitch(){
     disableAudioButton();
     Soundon.classList.toggle("hide");
     Soundoff.classList.toggle("hide");
-    console.log(music[NowMusic].paused);
+
+    let SFX1 = document.querySelector(".SFX01");
+    let SFX2 = document.querySelector(".SFX02");
+
     if(music[NowMusic].paused == false){
         Mute = true;
+        SFX1.pause();
+        SFX2.pause();
         AudioMinus();
         console.log("playtrue");
     }
@@ -531,7 +536,7 @@ function MusicFadeIn(){
 // 特殊音效播放
 function SFX01_Play(){
     let SFX = document.querySelector(".SFX01");
-    SFX.volume=0.8;
+    SFX.volume=0.6;
     if(Mute!= true){
         SFX.play();
     }
@@ -539,7 +544,7 @@ function SFX01_Play(){
 
 function SFX02_Play(){
     let SFX = document.querySelector(".SFX02");
-    SFX.volume=0.8;
+    SFX.volume=0.6;
     if(Mute!= true){
         SFX.play();
     }
