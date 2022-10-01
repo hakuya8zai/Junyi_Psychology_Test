@@ -30,6 +30,7 @@ body {
   background-color: rgba(197, 197, 197, 0.2);
   color: rgb(255, 255, 255);
   box-shadow: none;
+  animation: AudioBreath 2s alternate-reverse infinite ease-out;
 }
 
 .PageLoading,
@@ -258,18 +259,63 @@ body {
 }
 /* 開始頁樣式區 */
 .ButtonStart{
+  position: relative;
   width: 92%;
-  margin: 0px 4%;
+  margin: 6% 4% 0px 4%;
   padding: 0px 15px;
-  height: 80px;
-  color: rgb(40, 40, 40);
-  background-color: hsla(0, 0%, 100%, 0.8);
+  height: 70px;
   font-size: 1.5rem;
   border: 0ch;
   box-shadow: none;
   z-index: 10;
+  background-color: transparent;
+}
+.ButtonStart p{
+  color: rgb(255, 248, 233);
+  text-decoration: underline;
+  animation: StartBreath 2s alternate-reverse infinite ease-out;
+}
+
+.Page0.background_image_layer1 {
+  z-index: 1;
+  bottom: 245px;
+}
+.Page0.background_image_layer5 {
+  z-index: 5;
+}
+.Page0.Title{
+  position: relative;
+  font-size: 1.3rem;
+  padding-top: 110%;
+}
+.Title p{
+  margin-top: 45px;
+  margin-bottom: 2px;
+  color: rgb(255, 255, 255);
 
 }
+.Page0.Subtitle{
+  position: relative;
+  font-size: 1.15rem;
+  padding-top: 0;
+}
+.Subtitle p{
+  margin-top: 2px;
+  margin-bottom: 10px;
+  color: rgb(255, 248, 233);
+
+}
+.Page0.Notes{
+  position: relative;
+  font-size: 0.8rem;
+  padding-top: 15px;
+}
+.Notes p{
+  margin-top: 0px;
+  margin-bottom: 2px;
+  color: rgba(255, 253, 249, 0.821);
+}
+
 /*---第一頁樣式區---*/
 .Page1.background_image_layer5 {
   width: 75%;
@@ -557,6 +603,26 @@ body {
   }
 }
 
+/* 開始頁開始按鈕呼吸感 */
+@keyframes StartBreath{
+  0%{
+    opacity: 0.3;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+/* 右上音量按鈕點擊前呼吸感 */
+@keyframes AudioBreath {
+  0%{
+    background-color: rgba(197, 197, 197, 0.2);
+  }
+  100%{
+    background-color: rgba(197, 197, 197, 1.0);
+  }
+
+}
+
 /*第一頁動畫*/
 @keyframes StarShine {
   0% {
@@ -585,3 +651,4 @@ body {
   transform: translate(40%,0) rotate(90deg);
 }
 }
+
