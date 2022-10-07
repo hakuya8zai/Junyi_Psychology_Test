@@ -195,7 +195,7 @@ function PageTransition(){
 }
 
 function ChangePage(){
-    let oldThings = document.querySelector(".Page"+NowPage);
+    let oldThings = document.querySelector(".Page"+NowPage-1);
     if(oldThings!=null){
         oldThings.classList.toggle("hide");
     }
