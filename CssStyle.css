@@ -2,9 +2,11 @@ body {
   background-color: rgb(255, 255, 255);
   margin: 0;
   font-family: "PingFangTC-Regular", "Noto Sans TC", "sans-serif";
+  image-rendering: auto;
 }
 
 .App {
+  -webkit-overflow-scrolling: touch;
   position: absolute;
   width: 375px;
   height: 667px;
@@ -16,7 +18,6 @@ body {
   overflow: scroll;
 
 }
-
 
 .material-icons {
   position: absolute;
@@ -312,7 +313,7 @@ body {
 }
 .Page0.Notes{
   position: relative;
-  font-size: 0.8rem;
+  font-size: 0.83rem;
   padding-top: 15px;
 }
 .Notes p{

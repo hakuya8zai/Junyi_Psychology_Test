@@ -11,7 +11,6 @@ window.onload = function(){
     CheckSoundEnvironment();
 }
 
-
 let Visual_score = 0;
 let Aural_score = 0;
 let ReadWrite_score = 0;
