@@ -21,6 +21,7 @@ body {
 }
 img {
   -webkit-touch-callout: default !important;
+  transform: translate3d(0,0,0);
 }
 
 
@@ -601,9 +602,6 @@ img {
   0% {
     opacity: 1;
   }
-  1% {
-    opacity: 0.99;
-  }
   100% {
     opacity: 0;
   }
@@ -611,9 +609,6 @@ img {
 @keyframes FadeIn {
   0% {
     opacity: 0;
-  }
-  99% {
-    opacity: 0.99;
   }
   100% {
     opacity: 1;
@@ -626,9 +621,6 @@ img {
   50% {
     opacity: 0;
   }
-  99% {
-    opacity: 0.99;
-  }
   100% {
     opacity: 1;
   }
@@ -638,9 +630,6 @@ img {
 @keyframes StartBreath{
   0%{
     opacity: 0.3;
-  }
-  99% {
-    opacity: 0.99;
   }
   100%{
     opacity: 1;
@@ -661,9 +650,6 @@ img {
 @keyframes StarShine {
   0% {
     opacity: 1;
-  }
-  99% {
-    opacity: 0.99;
   }
   100% {
     opacity: 0;
