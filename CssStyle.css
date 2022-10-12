@@ -17,8 +17,8 @@ body {
   margin: auto; 
   overflow: scroll;
 }
-.canSafe {
-  -webkit-touch-callout: default;
+img {
+  -webkit-touch-callout: default !important;
 }
 
 .material-icons {
