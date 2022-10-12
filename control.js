@@ -344,70 +344,70 @@ function ResultPage(){
 
     switch (CaseID){
         case 1:
-            resultImage.src="image/Result/01_V/1_V_observer.png";
+            resultImage.src="image/Result/1_V.png";
 
             console.log("check-V");
             break;
         case 2:
-            resultImage.src="image/Result/01_V/1_V_observer.png";
+            resultImage.src="image/Result/2_A.png";
 
             console.log("check-A");
             break;
         case 3:
-            resultImage.src="image/Result/01_V/1_V_observer.png";
+            resultImage.src="image/Result/3_R.png";
 
             console.log("check-R");
             break;
         case 4:
-            resultImage.src="image/Result/01_V/1_V_observer.png";
+            resultImage.src="image/Result/4_K.png";
 
             console.log("check-K");
             break;
         case 5:
-            resultImage.src="image/Result/01_V/1_V_observer.png";
+            resultImage.src="image/Result/5_VA.png";
 
             console.log("check-VA");
             break;
         case 6:
-            resultImage.src="image/Result/01_V/1_V_observer.png";
+            resultImage.src="image/Result/6_VR.png";
 
             console.log("check-VR");
             break;
         case 7:
-            resultImage.src="image/Result/01_V/1_V_observer.png";
+            resultImage.src="image/Result/7_VK.png";
 
             console.log("check-VK");
             break;    
         case 8:
-            resultImage.src="image/Result/01_V/1_V_observer.png";
+            resultImage.src="image/Result/8_AR.png";
             console.log("check-AR");
             break;
         case 9:
-            resultImage.src="image/Result/01_V/1_V_observer.png";
+            resultImage.src="image/Result/9_AK.png";
             console.log("check-AK");
             break;
         case 10:
-            resultImage.src="image/Result/01_V/1_V_observer.png";
+            resultImage.src="image/Result/10_RK.png";
             console.log("check-KR");
             break;
         case 11:
-            resultImage.src="image/Result/01_V/1_V_observer.png";
+            resultImage.src="image/Result/11_VARK.png";
             console.log("check-VAR");
             break;
         case 12:
-            resultImage.src="image/Result/01_V/1_V_observer.png";
+            resultImage.src="image/Result/11_VARK.png";
             console.log("check-VAK");
             break;
         case 13:
-            resultImage.src="image/Result/01_V/1_V_observer.png";
+            resultImage.src="image/Result/11_VARK.png";
             console.log("check-VRK");
             break;
         case 14:
-            resultImage.src="image/Result/01_V/1_V_observer.png";
+            resultImage.src="image/Result/11_VARK.png";
             console.log("check-ARK");
             break;    
         case 15:
-            resultImage.src="image/Result/01_V/1_V_observer.png";
+            resultImage.src="image/Result/11_VARK.png";
             console.log("check-VARK");
             break;    
     
