@@ -5,8 +5,10 @@ body {
   image-rendering: auto;
 }
 
+
 .App {
   -webkit-overflow-scrolling: touch;
+
   position: absolute;
   width: 375px;
   height: 667px;
@@ -20,6 +22,7 @@ body {
 img {
   -webkit-touch-callout: default !important;
 }
+
 
 .material-icons {
   position: absolute;
@@ -269,7 +272,7 @@ img {
 .ButtonStart{
   position: relative;
   width: 92%;
-  margin: 6% 4% 0px 4%;
+  margin: 2% 4% 4% 4%;
   padding: 0px 15px;
   height: 70px;
   font-size: 1.5rem;
@@ -291,32 +294,43 @@ img {
 .Page0.background_image_layer5 {
   z-index: 5;
 }
-.Page0.Title{
+.Page0.MidTitle{
   position: relative;
   font-size: 1.3rem;
-  padding-top: 110%;
+  padding-top: 114%;
 }
+
+.Page0.Title{
+  position: relative;
+  font-size: 1.4rem;
+  padding-top: 2px;
+}
+.MidTitle p{
+  margin-top: 5px;
+  margin-bottom: 2px;
+  color: rgb(255, 248, 233);
+}
+
 .Title p{
-  margin-top: 45px;
+  margin-top: 2px;
   margin-bottom: 2px;
   color: rgb(255, 255, 255);
-
 }
 .Page0.Subtitle{
   position: relative;
-  font-size: 1.15rem;
+  font-size: 0.9rem;
   padding-top: 0;
 }
 .Subtitle p{
   margin-top: 2px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   color: rgb(255, 248, 233);
 
 }
 .Page0.Notes{
   position: relative;
-  font-size: 0.83rem;
-  padding-top: 15px;
+  font-size: 0.7rem;
+  padding-top: 5px;
 }
 .Notes p{
   margin-top: 0px;
@@ -510,9 +524,9 @@ img {
   background-color: rgba(0, 0, 0, 0.8);
   text-align: center;
   letter-spacing: 10px;
-  font-size: 16px;
+  font-size: 11px;
   width: 100%;
-  height: 30px;
+  height: 22px;
   z-index: 5;
 }
 .CTAButton{
@@ -587,6 +601,9 @@ img {
   0% {
     opacity: 1;
   }
+  1% {
+    opacity: 0.99;
+  }
   100% {
     opacity: 0;
   }
@@ -594,6 +611,9 @@ img {
 @keyframes FadeIn {
   0% {
     opacity: 0;
+  }
+  99% {
+    opacity: 0.99;
   }
   100% {
     opacity: 1;
@@ -606,6 +626,9 @@ img {
   50% {
     opacity: 0;
   }
+  99% {
+    opacity: 0.99;
+  }
   100% {
     opacity: 1;
   }
@@ -615,6 +638,9 @@ img {
 @keyframes StartBreath{
   0%{
     opacity: 0.3;
+  }
+  99% {
+    opacity: 0.99;
   }
   100%{
     opacity: 1;
@@ -635,6 +661,9 @@ img {
 @keyframes StarShine {
   0% {
     opacity: 1;
+  }
+  99% {
+    opacity: 0.99;
   }
   100% {
     opacity: 0;
