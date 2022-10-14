@@ -183,13 +183,21 @@ function PageTransition(){
     let oldPage = document.querySelector(".Page"+NowPage);
 
     let oldButton = oldPage.querySelector(".Button_container");
-    oldButton.classList.toggle("transOut");
+    if(oldButton!=null){
+        oldButton.classList.toggle("transOut");
+    }
     let oldDescription = oldPage.querySelector(".Description");
-    oldDescription.classList.toggle("transOut");
+    if(oldDescription!=null){
+        oldDescription.classList.toggle("transOut");
+    }
     let oldQuestion = oldPage.querySelector(".Question");
-    oldQuestion.classList.toggle("transOut");
+    if(oldQuestion!=null){
+        oldQuestion.classList.toggle("transOut");
+    }
     let oldbackgroud_image = oldPage.querySelector(".background_image");
-    oldbackgroud_image.classList.toggle("transOut");
+    if(oldbackgroud_image!=null){
+        oldbackgroud_image.classList.toggle("transOut");
+    }
 
     FinalScore();
 }
