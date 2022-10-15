@@ -45,7 +45,7 @@ function setButton(){
     let Soundon = document.getElementsByClassName("on");
     let Soundoff = document.getElementsByClassName("off");    
     console.log(Button_Start);
-    Button_Start.addEventListener("click",ChangePage);
+    Button_Start.addEventListener("click",afterChoose);
     for(let i=0; i<Button_addA.length;i++){
         Button_addV[i].addEventListener("click",addScoreV);
         Button_addA[i].addEventListener("click",addScoreA);
@@ -122,9 +122,10 @@ function disableButton(){
     let disabled_ButtonA = document.querySelector((".Page"+NowPage)+".ButtonA");
     let disabled_ButtonR = document.querySelector((".Page"+NowPage)+".ButtonR");
     let disabled_ButtonK = document.querySelector((".Page"+NowPage)+".ButtonK");
-
-    if(disabled_ButtonA!=null){
+    if(disabled_ButtonStart!=null){
         disabled_ButtonStart.disabled = true;
+    }
+    if(disabled_ButtonA!=null){
         disabled_ButtonV.disabled = true;
         disabled_ButtonA.disabled = true;
         disabled_ButtonR.disabled = true;
@@ -138,9 +139,11 @@ function enableButton(){
     let disabled_ButtonA = document.querySelector((".Page"+NowPage)+".ButtonA");
     let disabled_ButtonR = document.querySelector((".Page"+NowPage)+".ButtonR");
     let disabled_ButtonK = document.querySelector((".Page"+NowPage)+".ButtonK");
+    if(disabled_ButtonStart!=null){
+        disabled_ButtonStart.disabled = false;
+    }
 
     if(disabled_ButtonA!=null){
-        disabled_ButtonStart.disabled = false;
         disabled_ButtonV.disabled = false;
         disabled_ButtonA.disabled = false;
         disabled_ButtonR.disabled = false;
@@ -170,13 +173,14 @@ function enableAudioButton(){
 // 載入完成，從載入頁切換到開始頁面
 function LoadOver(){
     let oldPage = document.querySelector(".PageLoading");
-    oldPage.classList.toggle("hide");
     let oldDescription = oldPage.querySelector(".Description");
     oldDescription.classList.toggle("transOut");
     let oldbackgroud_image = oldPage.querySelector(".background_image");
     oldbackgroud_image.classList.toggle("transOut");
-
-    ChangePage();
+    setTimeout(() => {
+        ChangePage();
+        oldPage.classList.toggle("hide");
+    }, 1000);
 }
 
 function PageTransition(){
@@ -203,6 +207,7 @@ function PageTransition(){
 }
 
 function ChangePage(){
+    console.log(NowPage);
     let oldThings = document.querySelector(".Page"+NowPage);
     if(oldThings!=null){
         oldThings.classList.toggle("hide");
@@ -218,21 +223,25 @@ function ChangePage(){
     }
     let newThings = document.querySelector(".Page"+NowPage);
     newThings.classList.toggle("hide");
+    let StartButton = document.querySelector(".ButtonStart");
+    StartButton.classList.toggle("transIn");
 
     let newButton = newThings.querySelector(".Button_container");
     if(newButton!=null){
         newButton.classList.toggle("transIn");        
     }
-    let newDescription = newThings.querySelector(".Description");
-    if(newButton!=null){
-        newDescription.classList.toggle("transIn");
+    let newDescription = newThings.getElementsByClassName("Description");
+    if(newDescription!=null){
+        for(let i =0;i<newDescription.length;i++){
+            newDescription[i].classList.toggle("transIn");
+        }
     }
     let newQuestion = newThings.querySelector(".Question");
-    if(newButton!=null){
+    if(newQuestion!=null){
         newQuestion.classList.toggle("transIn");
     }
     let newbackgroud_image = newThings.querySelector(".background_image");
-    if(newButton!=null){
+    if(newbackgroud_image!=null){
         newbackgroud_image.classList.toggle("transIn");        
     }
     // let lastPageCTA = newThings.querySelector(".CTA");
@@ -643,11 +652,11 @@ function ImageList(LoadingImage){
     if(LoadingImage ==0){
     }
     else if (LoadingImage ==1){
-        TheChangeImg[0].src ="image/Page1/background.png";
-        TheChangeImg[1].src ="image/Page1/smallstar.png";
-        TheChangeImg[2].src ="image/Page1/bigstar.png";
-        TheChangeImg[3].src ="image/Page1/cloud.png";
-        TheChangeImg[4].src ="image/Page1/foxycat_liedown.png";
+        // TheChangeImg[0].src ="";
+        // TheChangeImg[1].src ="";
+        // TheChangeImg[2].src ="";
+        // TheChangeImg[3].src ="";
+        // TheChangeImg[4].src ="";
     }
     else if (LoadingImage ==2){
         TheChangeImg[1].src ="image/Page2/foxycat_reading.png";
