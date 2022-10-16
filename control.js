@@ -386,6 +386,13 @@ function FinalScore(){
 // 根據 CaseID，將結尾頁用 switch 顯示為指定的頁面
 function ResultPage(){
     let resultImage = document.querySelector(".resultImage1");
+    let CTAButton = document.querySelector(".CTAButton");
+    CTAButton.disabled = true;
+    resultImage.onload = function(){
+        let FinalCTA = document.querySelector(".CTA");
+        FinalCTA.classList.toggle("hide");
+        CTAButton.disabled = false;
+    }
 
     switch (CaseID){
         case 1:
@@ -457,6 +464,7 @@ function ResultPage(){
             break;    
     
     }
+
 
 }
 
