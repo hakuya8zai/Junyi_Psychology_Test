@@ -17,7 +17,7 @@ body {
   bottom: 0;
   right: 0;
   margin: auto; 
-  overflow:scroll;
+  overflow:hidden;
 }
 img {
   transform: translate3d(0,0,0);
@@ -414,7 +414,8 @@ img {
   position: absolute;
   height: 125px;
   width: 221px;
-  margin: 500px 20.5% 0px 20.5%;
+  top: 500px ;
+  margin-left:20.5%;
 }
 
 /*---第四頁樣式區---*/
