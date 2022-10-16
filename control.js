@@ -1,10 +1,10 @@
 
 window.onload = function(){
     verticleRWD();
-    let height = innerHeight;
-    window.addEventListener("resize", () =>{
-        height = window.innerHeight;
-    })
+    // let height = innerHeight;
+    // window.addEventListener("resize", () =>{
+    //     height = window.innerHeight;
+    // })
     setButton();
     LoadOver();
     QueueLode();
@@ -605,7 +605,8 @@ function SFX02_Play(){
 function verticleRWD(){
     if(window.innerWidth<=375){
 
-        if(window.innerHeight<=667){
+        if(window.innerHeight<=690){
+            console.log(innerHeight);
             document.getElementById("App").style.top = 0;
             document.getElementById("App").style.bottom = 0;
             document.getElementById("App").style.left = 0;
@@ -614,6 +615,7 @@ function verticleRWD(){
             document.getElementById("App").style.margin = 0;
             }
         else{
+            console.log(innerHeight);
             document.getElementById("App").style.left = 0;
             document.getElementById("App").style.right = 0;
             document.getElementById("App").style.margin =("auto 0");
@@ -621,7 +623,7 @@ function verticleRWD(){
     
     }
     else{
-        if(window.innerHeight<=667){
+        if(window.innerHeight<=690){
             document.getElementById("App").style.top = 0;
             document.getElementById("App").style.bottom = 0;
             document.getElementById("App").style.margin = ("0 auto");

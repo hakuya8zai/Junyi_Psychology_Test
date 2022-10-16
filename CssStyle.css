@@ -17,10 +17,9 @@ body {
   bottom: 0;
   right: 0;
   margin: auto; 
-  overflow: scroll;
+  overflow:scroll;
 }
 img {
-  -webkit-touch-callout: default !important;
   transform: translate3d(0,0,0);
 }
 
@@ -404,7 +403,7 @@ img {
   z-index: 10;
   height: 120px;
   width: 221px;
-  margin: 500px 21% 0px 21%;
+  margin: 500px 20.5% 0px 20.5%;
   animation: none;
   /* transform: translate(-40%, 0); */
 }
