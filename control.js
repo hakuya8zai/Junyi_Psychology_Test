@@ -710,17 +710,18 @@ function ImageList(LoadingImage){
     else if (LoadingImage ==5){
         TheChangeImg[0].src ="image/Page5/bg_moon_earth.jpg";
         TheChangeImg[4].src ="image/Page5/Foxycat_shock.png";
-
+        console.log("Page5Loading");
     }
     else if (LoadingImage ==6){
         TheChangeImg[0].src ="image/Page6/bg_school_room.jpg";
         TheChangeImg[1].src ="image/Page6/teacher.png";
         TheChangeBGM[3].src ="sound/04_DorrisDay.mp3";
-
+        console.log("Page6Loading");
     }
     else if (LoadingImage ==7){
         TheChangeImg[0].src ="image/Page7/bg_stage.png";
         TheChangeImg[1].src ="image/Page7/foxycat_withpad.png";
+        console.log("Page7Loading");
 
     }
     else if (LoadingImage ==8){
@@ -729,6 +730,8 @@ function ImageList(LoadingImage){
         let thePointer = document.getElementsByClassName("FingerPoint");
         let thePointerImg = thePointer[0].getElementsByTagName("img");
         thePointerImg[0].src ="image/Result/computer_cursor_finger_white.png";
+        console.log("Page8Loading");
+
     }
 
 }
