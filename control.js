@@ -649,6 +649,7 @@ function QueueLode(){
         for(let pageCountNow=0;pageCountNow<LoadPageImage.length;pageCountNow++){
             //判斷這張圖片載完了沒
             if(LoadPageImage[pageCountNow].complete==true){
+                console.log("ThisPageImageLoadOver");
                 k = k+1;
                 //每當圖片載完，判斷這整頁圖片載完了沒，載完就進入下一頁
                 if(LoadPageImage.length == k){
@@ -657,19 +658,24 @@ function QueueLode(){
                     if(pageCount<9){
                         //如果全部都載完，呼叫載入下一頁圖片的 funtion
                         ImageList(pageCount);
+                        console.log("CallImageList");
                         //如果全部都載完，進入下一頁的檢查
                         QueueLode();
+                        console.log("Check Queue");
                     }
                 }
             }
             else{
                 LoadPageImage[pageCountNow].addEventListener("load",() => {
+                    console.log("AddImageLoadEventListener");
                     k = k+1;
                     if(LoadPageImage.length == k){
                         pageCount=pageCount+1;
                         if(pageCount<9){
-                            ImageList(pageCount);    
+                            ImageList(pageCount);   
+                            console.log("CallImageList"); 
                             QueueLode();
+                            console.log("Check Queue");
                         }
                     }                    
                 });
@@ -684,6 +690,7 @@ function ImageList(LoadingImage){
     let TheChangeImg = ChangeSrcPage[0].getElementsByTagName("img");
     let TheChangeBGM = document.getElementsByClassName("BGM");
     if(LoadingImage ==0){
+        console.log("Page0Loading");
     }
     else if (LoadingImage ==1){
         // TheChangeImg[0].src ="";
@@ -691,20 +698,26 @@ function ImageList(LoadingImage){
         // TheChangeImg[2].src ="";
         // TheChangeImg[3].src ="";
         // TheChangeImg[4].src ="";
+        console.log("Page1Loading");
+
     }
     else if (LoadingImage ==2){
         TheChangeImg[1].src ="image/Page2/foxycat_reading.png";
         TheChangeBGM[1].src ="sound/02_FunHouseTrap.mp3";
+        console.log("Page2Loading");
+
     }
     else if (LoadingImage ==3){
         TheChangeImg[0].src ="image/Page3/computer_background.png";
         TheChangeImg[2].src ="image/Page3/computer.png";
+        console.log("Page3Loading");
 
     }
     else if (LoadingImage ==4){
         TheChangeImg[0].src ="image/Page3/computer_background.png";
         TheChangeImg[1].src ="image/Page4/foxycat_look.png";
         TheChangeBGM[2].src ="sound/03_DeadForest.mp3";
+        console.log("Page4Loading");
 
     }
     else if (LoadingImage ==5){
