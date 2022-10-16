@@ -399,13 +399,22 @@ img {
 .Page3.Question {
   color: rgb(94, 94, 94);
 }
+.Page3.background_image_layer1 {
+  width: 100%;
+}
+
 .Page3.background_image_layer2 {
   z-index: 10;
-  height: 120px;
-  width: 221px;
-  margin: 500px 20.5% 0px 20.5%;
+  height: 100%;
+  width: 100%;
   animation: none;
   /* transform: translate(-40%, 0); */
+}
+.Page3.background_image_layer2 > img {
+  position: absolute;
+  height: 125px;
+  width: 221px;
+  margin: 500px 20.5% 0px 20.5%;
 }
 
 /*---第四頁樣式區---*/
