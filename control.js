@@ -42,9 +42,10 @@ function setButton(){
     let Button_addR = document.getElementsByClassName("ButtonR");
     let Button_addK = document.getElementsByClassName("ButtonK");
     let Button_Start = document.querySelector(".ButtonStart");
+    console.log(Button_Start);
     let Soundon = document.getElementsByClassName("on");
     let Soundoff = document.getElementsByClassName("off");    
-    Button_Start.addEventListener("click",afterChoose(null));
+    Button_Start.addEventListener("click",afterChoose);
     for(let i=0; i<Button_addA.length;i++){
         Button_addV[i].addEventListener("click",addScoreV);
         Button_addA[i].addEventListener("click",addScoreA);
@@ -107,8 +108,8 @@ function addScoreK(){
 }
 
 function afterChoose(ChosenButton){
+    console.log(ChosenButton)
     disableButton();
-    console.log(ChosenButton);
     PageTransition(ChosenButton);
 }
 
@@ -182,50 +183,52 @@ function LoadOver(){
 }
 
 function PageTransition(DelayedButton){
-    let oldPage;
-    if(NowPage<0){
-        oldPage = document.querySelector(".PageLoading");
-    }
-    else{
-        oldPage = document.querySelector(".Page"+NowPage);
-    }
-    let oldButton = oldPage.querySelector(".Button_container");
-    if(oldButton!=null){
-        console.log(oldButton.getElementsByTagName("button"));
-        let AllButtonFade = oldButton.getElementsByTagName("button");
-        for(let i = 0;i<AllButtonFade.length;i++){
-            AllButtonFade[i].classList.toggle("transOut");
+    if(NowPage>=0){
+        console.log("CallTransition");
+        console.log("NowPage"+NowPage);
+        let oldPage = document.querySelector(".Page"+NowPage);
+        console.log(oldPage);
+        let oldButton = oldPage.querySelector(".Button_container");
+        if(oldButton!=null){
+            console.log(oldButton.getElementsByTagName("button"));
+            let AllButtonFade = oldButton.getElementsByTagName("button");
+            for(let i = 0;i<AllButtonFade.length;i++){
+                AllButtonFade[i].classList.toggle("transOut");
+            }
         }
+        let oldDescription = oldPage.querySelector(".Description");
+        if(oldDescription!=null){
+            oldDescription.classList.toggle("transOut");
+        }
+        let oldQuestion = oldPage.querySelector(".Question");
+        if(oldQuestion!=null){
+            oldQuestion.classList.toggle("transOut");
+        }
+        let oldbackgroud_image = oldPage.querySelector(".background_image");
+        if(oldbackgroud_image!=null){
+            oldbackgroud_image.classList.toggle("transOut");
+        }
+        if(DelayedButton == ".ButtonV" || DelayedButton == ".ButtonA" || DelayedButton == ".ButtonR" || DelayedButton == ".ButtonK"){
+            console.log(DelayedButton);
+            let DelayFadeButton = oldPage.querySelector(DelayedButton);
+            if(DelayFadeButton!=null){
+                DelayFadeButton.classList.toggle("ChosenButtonTransOut");
+                DelayFadeButton.classList.toggle("transOut");
+    
+            }    
+        }
+    
+    
+        FinalScore();
+    
     }
-    let oldDescription = oldPage.querySelector(".Description");
-    if(oldDescription!=null){
-        oldDescription.classList.toggle("transOut");
-    }
-    let oldQuestion = oldPage.querySelector(".Question");
-    if(oldQuestion!=null){
-        oldQuestion.classList.toggle("transOut");
-    }
-    let oldbackgroud_image = oldPage.querySelector(".background_image");
-    if(oldbackgroud_image!=null){
-        oldbackgroud_image.classList.toggle("transOut");
-    }
-    if(DelayedButton!=null){
-        let DelayFadeButton = oldPage.querySelector(DelayedButton);
-        if(DelayFadeButton!=null){
-            DelayFadeButton.classList.toggle("ChosenButtonTransOut");
-            DelayFadeButton.classList.toggle("transOut");
-
-        }    
-    }
-
-
-    FinalScore();
 }
 
 function ChangePage(){
     console.log(NowPage);
     let oldThings = document.querySelector(".Page"+NowPage);
     if(oldThings!=null){
+        console.log("here?");
         oldThings.classList.toggle("hide");
     }
     NowPage++;
@@ -363,7 +366,7 @@ function FinalScore(){
         }
         ResultPage();
     }
-
+        console.log("CallFinalScore");
         setTimeout(() => {
             ChangePage();
         }, 1000);
@@ -617,10 +620,8 @@ let pageCount = 0;
 function QueueLode(){
     // 每一頁載完後進入下一頁
         let AllImagePage = document.getElementsByClassName("Page"+pageCount);
-        console.log("現在開始抓第"+pageCount+"頁的Queue");
         // 下面是取得第 i 頁的所有圖片
         let LoadPageImage = AllImagePage[0].getElementsByTagName("img");
-        console.log("第"+pageCount+"頁圖片有" + LoadPageImage.length);
         //當頁已載完數量
         let k = 0;
         //載圖片，直到滿當頁數量
@@ -628,10 +629,8 @@ function QueueLode(){
             //判斷這張圖片載完了沒
             if(LoadPageImage[pageCountNow].complete==true){
                 k = k+1;
-                console.log("第"+pageCount+LoadPageImage[pageCountNow].complete);
                 //每當圖片載完，判斷這整頁圖片載完了沒，載完就進入下一頁
                 if(LoadPageImage.length == k){
-                    console.log("第"+pageCount+"頁載入完成");
                     pageCount=pageCount+1;
                     //檢查是不是最後一頁
                     if(pageCount<9){
@@ -646,7 +645,6 @@ function QueueLode(){
                 LoadPageImage[pageCountNow].addEventListener("load",() => {
                     k = k+1;
                     if(LoadPageImage.length == k){
-                        console.log("第"+pageCount+"頁載入完成");
                         pageCount=pageCount+1;
                         if(pageCount<9){
                             ImageList(pageCount);    
@@ -660,7 +658,6 @@ function QueueLode(){
 }
 
 function ImageList(LoadingImage){
-    console.log(LoadingImage+"開始Loading");
     let ChangeSrcPage = document.getElementsByClassName("Page"+LoadingImage);
     //抓取底下有 img tag 的變陣列
     let TheChangeImg = ChangeSrcPage[0].getElementsByTagName("img");

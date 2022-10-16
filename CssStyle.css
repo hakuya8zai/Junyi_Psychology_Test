@@ -245,7 +245,7 @@ img {
   animation: buttonfade 1s;
 }
 .Button1.transOut, .Button2.transOut, .Button3.transOut, .Button4.transOut {
-  animation: buttonfade 0.5s forwards;
+  animation: buttonfade 0.2s forwards;
 }
 
 .Description.transOut {
