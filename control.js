@@ -172,8 +172,10 @@ function enableAudioButton(){
 // 載入完成，從載入頁切換到開始頁面
 function LoadOver(){
     let oldPage = document.querySelector(".PageLoading");
-    let oldDescription = oldPage.querySelector(".Description");
-    oldDescription.classList.toggle("transOut");
+    let oldDescription = oldPage.getElementsByClassName("Description");
+    for(let i=0;i<oldDescription.length;i++){
+        oldDescription[i].classList.toggle("transOut");
+    }
     let oldbackgroud_image = oldPage.querySelector(".background_image");
     oldbackgroud_image.classList.toggle("transOut");
     setTimeout(() => {
@@ -196,9 +198,16 @@ function PageTransition(DelayedButton){
                 AllButtonFade[i].classList.toggle("transOut");
             }
         }
-        let oldDescription = oldPage.querySelector(".Description");
+        if (NowPage==0){
+            let theStartButton = oldPage.querySelector(".ButtonStart");
+            theStartButton.classList.toggle("transOut");
+            console.log("buttonfade");
+        }
+        let oldDescription = oldPage.getElementsByClassName("Description");
         if(oldDescription!=null){
-            oldDescription.classList.toggle("transOut");
+            for(let i=0;i<oldDescription.length;i++){
+                oldDescription[i].classList.toggle("transOut");
+            }
         }
         let oldQuestion = oldPage.querySelector(".Question");
         if(oldQuestion!=null){
