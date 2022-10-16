@@ -42,7 +42,6 @@ function setButton(){
     let Button_addR = document.getElementsByClassName("ButtonR");
     let Button_addK = document.getElementsByClassName("ButtonK");
     let Button_Start = document.querySelector(".ButtonStart");
-    console.log(Button_Start);
     let Soundon = document.getElementsByClassName("on");
     let Soundoff = document.getElementsByClassName("off");    
     Button_Start.addEventListener("click",afterChoose);
@@ -108,7 +107,6 @@ function addScoreK(){
 }
 
 function afterChoose(ChosenButton){
-    console.log(ChosenButton)
     disableButton();
     PageTransition(ChosenButton);
 }
@@ -130,6 +128,8 @@ function disableButton(){
         disabled_ButtonR.disabled = true;
         disabled_ButtonK.disabled = true;    
     }
+    console.log("ButtonDisable");
+
 }
 //讓按鈕可被點擊
 function enableButton(){
@@ -141,13 +141,14 @@ function enableButton(){
     if(disabled_ButtonStart!=null){
         disabled_ButtonStart.disabled = false;
     }
-
     if(disabled_ButtonA!=null){
         disabled_ButtonV.disabled = false;
         disabled_ButtonA.disabled = false;
         disabled_ButtonR.disabled = false;
         disabled_ButtonK.disabled = false;    
     }
+    console.log("ButtonEnable");
+    console.log("------ Each Page Over ------")
 
 }
 //讓音量按鈕不可被點擊
@@ -187,12 +188,9 @@ function LoadOver(){
 function PageTransition(DelayedButton){
     if(NowPage>=0){
         console.log("CallTransition");
-        console.log("NowPage"+NowPage);
         let oldPage = document.querySelector(".Page"+NowPage);
-        console.log(oldPage);
         let oldButton = oldPage.querySelector(".Button_container");
         if(oldButton!=null){
-            console.log(oldButton.getElementsByTagName("button"));
             let AllButtonFade = oldButton.getElementsByTagName("button");
             for(let i = 0;i<AllButtonFade.length;i++){
                 AllButtonFade[i].classList.toggle("transOut");
@@ -218,7 +216,6 @@ function PageTransition(DelayedButton){
             oldbackgroud_image.classList.toggle("transOut");
         }
         if(DelayedButton == ".ButtonV" || DelayedButton == ".ButtonA" || DelayedButton == ".ButtonR" || DelayedButton == ".ButtonK"){
-            console.log(DelayedButton);
             let DelayFadeButton = oldPage.querySelector(DelayedButton);
             if(DelayFadeButton!=null){
                 DelayFadeButton.classList.toggle("ChosenButtonTransOut");
@@ -234,20 +231,24 @@ function PageTransition(DelayedButton){
 }
 
 function ChangePage(){
-    console.log(NowPage);
     let oldThings = document.querySelector(".Page"+NowPage);
     if(oldThings!=null){
-        console.log("here?");
         oldThings.classList.toggle("hide");
     }
     NowPage++;
-    console.log(NowPage);
+    console.log("NowPage = "+NowPage);
     if(NowPage!=9){
         disableButton();
-        setTimeout(() => {
-            enableButton();
-            console.log("enable");
-        }, 3000);    
+        if(NowPage==0){
+            setTimeout(() => {
+                enableButton();
+            }, 1200);        
+        }
+        else{
+            setTimeout(() => {
+                enableButton();
+            }, 3000);        
+        }
     }
     let newThings = document.querySelector(".Page"+NowPage);
     newThings.classList.toggle("hide");
@@ -287,6 +288,8 @@ function FinalScore(){
 
         //下面是計算最高分的項目
         let Result = Math.max(Visual_score, Aural_score, ReadWrite_score, Kinesthetic_score);
+        console.log("V="+Visual_score,"A="+Aural_score,"R="+ReadWrite_score,"K="+Kinesthetic_score);
+        console.log("Result Highest ="+Result );
 
         if (Result == Visual_score){
             if(Result != Kinesthetic_score){      
@@ -603,8 +606,8 @@ function SFX02_Play(){
 }
 
 function verticleRWD(){
+    console.log("innerHeight="+innerHeight);
     if(window.innerWidth<=375){
-
         if(window.innerHeight<=690){
             console.log(innerHeight);
             document.getElementById("App").style.top = 0;
@@ -615,7 +618,6 @@ function verticleRWD(){
             document.getElementById("App").style.margin = 0;
             }
         else{
-            console.log(innerHeight);
             document.getElementById("App").style.left = 0;
             document.getElementById("App").style.right = 0;
             document.getElementById("App").style.margin =("auto 0");
