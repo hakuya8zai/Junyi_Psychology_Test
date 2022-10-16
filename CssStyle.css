@@ -401,13 +401,10 @@ img {
   color: rgb(94, 94, 94);
 }
 .Page3.background_image_layer2 {
-  position: absolute;
   z-index: 10;
   height: 120px;
-  padding-top: 100px;
-  padding-left: 76px;
   width: 221px;
-  margin-top: 400px;
+  margin: 500px 21% 0px 21%;
   animation: none;
   /* transform: translate(-40%, 0); */
 }
