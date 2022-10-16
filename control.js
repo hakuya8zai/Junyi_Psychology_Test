@@ -44,8 +44,7 @@ function setButton(){
     let Button_Start = document.querySelector(".ButtonStart");
     let Soundon = document.getElementsByClassName("on");
     let Soundoff = document.getElementsByClassName("off");    
-    console.log(Button_Start);
-    Button_Start.addEventListener("click",afterChoose);
+    Button_Start.addEventListener("click",afterChoose(null));
     for(let i=0; i<Button_addA.length;i++){
         Button_addV[i].addEventListener("click",addScoreV);
         Button_addA[i].addEventListener("click",addScoreA);
@@ -83,35 +82,34 @@ function setButton(){
     }
     CheckSoundEnvironment();
     Soundon[0].addEventListener("click",AudioSwitch);
-    console.log(Soundon[0]);
     Soundoff[0].addEventListener("click",AudioSwitch);
-    console.log(Soundoff[0]);
 }
-
+// To Do 用傳值告訴 funtion 選中哪個按鈕
 function addScoreV(){
     Visual_score++;
-    afterChoose();
+    afterChoose(".ButtonV");
     console.log("V得分："+Visual_score);
 }
 function addScoreA(){
     Aural_score++;
-    afterChoose();
+    afterChoose(".ButtonA");
     console.log("A得分："+Aural_score);
 }
 function addScoreR(){
     ReadWrite_score++;
-    afterChoose();
+    afterChoose(".ButtonR");
     console.log("R得分："+ReadWrite_score);
 }
 function addScoreK(){
     Kinesthetic_score++;
-    afterChoose();
+    afterChoose(".ButtonK");
     console.log("K得分："+Kinesthetic_score);
 }
 
-function afterChoose(){
+function afterChoose(ChosenButton){
     disableButton();
-    PageTransition();
+    console.log(ChosenButton);
+    PageTransition(ChosenButton);
 }
 
 
@@ -183,12 +181,21 @@ function LoadOver(){
     }, 1000);
 }
 
-function PageTransition(){
-    let oldPage = document.querySelector(".Page"+NowPage);
-
+function PageTransition(DelayedButton){
+    let oldPage;
+    if(NowPage<0){
+        oldPage = document.querySelector(".PageLoading");
+    }
+    else{
+        oldPage = document.querySelector(".Page"+NowPage);
+    }
     let oldButton = oldPage.querySelector(".Button_container");
     if(oldButton!=null){
-        oldButton.classList.toggle("transOut");
+        console.log(oldButton.getElementsByTagName("button"));
+        let AllButtonFade = oldButton.getElementsByTagName("button");
+        for(let i = 0;i<AllButtonFade.length;i++){
+            AllButtonFade[i].classList.toggle("transOut");
+        }
     }
     let oldDescription = oldPage.querySelector(".Description");
     if(oldDescription!=null){
@@ -202,6 +209,15 @@ function PageTransition(){
     if(oldbackgroud_image!=null){
         oldbackgroud_image.classList.toggle("transOut");
     }
+    if(DelayedButton!=null){
+        let DelayFadeButton = oldPage.querySelector(DelayedButton);
+        if(DelayFadeButton!=null){
+            DelayFadeButton.classList.toggle("ChosenButtonTransOut");
+            DelayFadeButton.classList.toggle("transOut");
+
+        }    
+    }
+
 
     FinalScore();
 }

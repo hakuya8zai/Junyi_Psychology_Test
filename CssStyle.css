@@ -244,9 +244,10 @@ img {
 .ButtonStart.transOut {
   animation: buttonfade 1s;
 }
-.Button_container.transOut {
-  animation: buttonfade 1s;
+.Button1.transOut, .Button2.transOut, .Button3.transOut, .Button4.transOut {
+  animation: buttonfade 0.5s forwards;
 }
+
 .Description.transOut {
   animation: buttonfade 1s;
 }
@@ -255,6 +256,9 @@ img {
 }
 .background_image.transOut {
   animation: buttonfade 1s;
+}
+.ChosenButtonTransOut{
+  animation: buttonfade 1s ease-in;
 }
 
 /*---以下是特別樣式區（做各種微調）---*/
