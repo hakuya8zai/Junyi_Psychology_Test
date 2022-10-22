@@ -293,7 +293,7 @@ function FinalScore(){
 
         if (Result == Visual_score){
             if(Result != Kinesthetic_score){      
-                if(Result != ReadWrite_score ){
+                if(Result != ReadWrite_score){
                     if(Result != Aural_score){
                         console.log("V");
                         CaseID = 1;
@@ -313,8 +313,7 @@ function FinalScore(){
                         CaseID = 11;
                     }
                 }
-            }
-            else{
+            } else {
                 if(Result != ReadWrite_score){
                     if(Result != Aural_score){
                         console.log("VK");
