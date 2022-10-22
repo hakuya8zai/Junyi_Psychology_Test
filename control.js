@@ -24,10 +24,10 @@ let CanControlVolume = true;
 // 測試是否可以控制音量
 function CheckSoundEnvironment(){
     let music = document.getElementsByClassName("BGM");
-    music[3].volume = music[3].volume +0.5;
-    if(music[3].volume == 0.5){
+    music[0].volume = music[0].volume +0.5;
+    if(music[0].volume == 0.5){
         CanControlVolume = true;
-        music[3].volume = 0;
+        music[0].volume = 0;
     }
     else{
         CanControlVolume = false;
@@ -53,27 +53,20 @@ function setButton(){
     }
 
     //換音樂的按鈕事件
-    Button_addV[1].addEventListener("click",MusicNext);
     Button_addV[3].addEventListener("click",MusicNext);
-    Button_addV[5].addEventListener("click",MusicNext);
-    Button_addA[1].addEventListener("click",MusicNext);
     Button_addA[3].addEventListener("click",MusicNext);
-    Button_addA[5].addEventListener("click",MusicNext);
-    Button_addR[1].addEventListener("click",MusicNext);
     Button_addR[3].addEventListener("click",MusicNext);
-    Button_addR[5].addEventListener("click",MusicNext);
-    Button_addK[1].addEventListener("click",MusicNext);
     Button_addK[3].addEventListener("click",MusicNext);
-    Button_addK[5].addEventListener("click",MusicNext);
+    Button_addV[7].addEventListener("click",MusicNext);
+    Button_addA[7].addEventListener("click",MusicNext);
+    Button_addR[7].addEventListener("click",MusicNext);
+    Button_addK[7].addEventListener("click",MusicNext);
+
     //放音效的按鈕事件
-    Button_addV[3].addEventListener("click",SFX01_Play);
-    Button_addA[3].addEventListener("click",SFX01_Play);
-    Button_addR[3].addEventListener("click",SFX01_Play);
-    Button_addK[3].addEventListener("click",SFX01_Play);
-    Button_addV[5].addEventListener("click",SFX02_Play);
-    Button_addA[5].addEventListener("click",SFX02_Play);
-    Button_addR[5].addEventListener("click",SFX02_Play);
-    Button_addK[5].addEventListener("click",SFX02_Play);
+    Button_addV[5].addEventListener("click",SFX01_Play);
+    Button_addA[5].addEventListener("click",SFX01_Play);
+    Button_addR[5].addEventListener("click",SFX01_Play);
+    Button_addK[5].addEventListener("click",SFX01_Play);
 
 
     let music = document.getElementsByClassName("BGM");
@@ -695,7 +688,6 @@ function ImageList(LoadingImage){
     }
     else if (LoadingImage ==2){
         TheChangeImg[1].src ="image/Page2/foxycat_reading.png";
-        TheChangeBGM[1].src ="sound/02_FunHouseTrap.mp3";
 
     }
     else if (LoadingImage ==3){
@@ -706,7 +698,7 @@ function ImageList(LoadingImage){
     else if (LoadingImage ==4){
         TheChangeImg[0].src ="image/Page3/computer_background.png";
         TheChangeImg[1].src ="image/Page4/foxycat_look.png";
-        TheChangeBGM[2].src ="sound/03_DeadForest.mp3";
+        TheChangeBGM[1].src ="sound/02_FunHouseTrap.mp3";
 
     }
     else if (LoadingImage ==5){
@@ -716,7 +708,6 @@ function ImageList(LoadingImage){
     else if (LoadingImage ==6){
         TheChangeImg[0].src ="image/Page6/bg_school_room.jpg";
         TheChangeImg[1].src ="image/Page6/teacher.png";
-        TheChangeBGM[3].src ="sound/04_DorrisDay.mp3";
     }
     else if (LoadingImage ==7){
         TheChangeImg[0].src ="image/Page7/bg_stage.png";
@@ -729,6 +720,7 @@ function ImageList(LoadingImage){
         let thePointer = document.getElementsByClassName("FingerPoint");
         let thePointerImg = thePointer[0].getElementsByTagName("img");
         thePointerImg[0].src ="image/Result/computer_cursor_finger_white.png";
+        TheChangeBGM[2].src ="sound/04_DorrisDay.mp3";
 
     }
 
