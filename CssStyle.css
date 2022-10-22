@@ -109,12 +109,12 @@ img {
   border-radius: 5px;
   justify-content: center;
   width: 46%;
-  margin: 0px 2%;
-  padding: 0px 10px;
+  margin: 0px 1%;
+  padding: 0px 8px;
   height: 80px;
   color: rgb(40, 40, 40);
   background-color: hsla(0, 0%, 100%, 0.8);
-  font-size: 0.95rem;
+  font-size: 1rem;
   border: 0ch;
   box-shadow: none;
 }
