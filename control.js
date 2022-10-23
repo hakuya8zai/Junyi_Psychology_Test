@@ -213,10 +213,8 @@ function PageTransition(DelayedButton){
             if(DelayFadeButton!=null){
                 DelayFadeButton.classList.toggle("ChosenButtonTransOut");
                 DelayFadeButton.classList.toggle("transOut");
-    
             }    
         }
-    
     
         FinalScore();
     
@@ -480,12 +478,10 @@ function AudioSwitch(){
     Soundoff.classList.toggle("hide");
 
     let SFX1 = document.querySelector(".SFX01");
-    let SFX2 = document.querySelector(".SFX02");
 
     if(music[NowMusic].paused == false){
         Mute = true;
         SFX1.pause();
-        SFX2.pause();
         AudioMinus();
         console.log("playtrue");
     }
@@ -538,7 +534,6 @@ function MusicFadeOut(){
     if(FadeCount > 0 && CanControlVolume == true){
         if(music[NowMusic].volume>= FadeUnit){
             music[NowMusic].volume = music[NowMusic].volume - FadeUnit;
-            console.log("mysound = "+music[NowMusic].volume);
         }
         else{
             music[NowMusic].volume = 0;
@@ -601,7 +596,6 @@ function verticleRWD(){
     console.log("innerHeight="+innerHeight);
     if(window.innerWidth<=375){
         if(window.innerHeight<=690){
-            console.log(innerHeight);
             document.getElementById("App").style.top = 0;
             document.getElementById("App").style.bottom = 0;
             document.getElementById("App").style.left = 0;
@@ -656,7 +650,6 @@ function QueueLode(){
             }
             else{
                 LoadPageImage[pageCountNow].addEventListener("load",() => {
-                    console.log("AddImageLoadEventListener");
                     k = k+1;
                     if(LoadPageImage.length == k){
                         pageCount=pageCount+1;
