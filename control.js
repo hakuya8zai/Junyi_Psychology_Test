@@ -389,70 +389,70 @@ function ResultPage(){
 
     switch (CaseID){
         case 1:
-            resultImage.src="image/Result/1_V.png";
+            resultImage.src="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Result/1_V.png";
 
             console.log("check-V");
             break;
         case 2:
-            resultImage.src="image/Result/2_A.png";
+            resultImage.src="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Result/2_A.png";
 
             console.log("check-A");
             break;
         case 3:
-            resultImage.src="image/Result/3_R.png";
+            resultImage.src="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Result/3_R.png";
 
             console.log("check-R");
             break;
         case 4:
-            resultImage.src="image/Result/4_K.png";
+            resultImage.src="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Result/4_K.png";
 
             console.log("check-K");
             break;
         case 5:
-            resultImage.src="image/Result/5_VA.png";
+            resultImage.src="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Result/5_VA.png";
 
             console.log("check-VA");
             break;
         case 6:
-            resultImage.src="image/Result/6_VR.png";
+            resultImage.src="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Result/6_VR.png";
 
             console.log("check-VR");
             break;
         case 7:
-            resultImage.src="image/Result/7_VK.png";
+            resultImage.src="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Result/7_VK.png";
 
             console.log("check-VK");
             break;    
         case 8:
-            resultImage.src="image/Result/8_AR.png";
+            resultImage.src="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Result/8_AR.png";
             console.log("check-AR");
             break;
         case 9:
-            resultImage.src="image/Result/9_AK.png";
+            resultImage.src="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Result/9_AK.png";
             console.log("check-AK");
             break;
         case 10:
-            resultImage.src="image/Result/10_RK.png";
+            resultImage.src="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Result/10_RK.png";
             console.log("check-KR");
             break;
         case 11:
-            resultImage.src="image/Result/11_VARK.png";
+            resultImage.src="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Result/11_VARK.png";
             console.log("check-VAR");
             break;
         case 12:
-            resultImage.src="image/Result/11_VARK.png";
+            resultImage.src="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Result/11_VARK.png";
             console.log("check-VAK");
             break;
         case 13:
-            resultImage.src="image/Result/11_VARK.png";
+            resultImage.src="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Result/11_VARK.png";
             console.log("check-VRK");
             break;
         case 14:
-            resultImage.src="image/Result/11_VARK.png";
+            resultImage.src="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Result/11_VARK.png";
             console.log("check-ARK");
             break;    
         case 15:
-            resultImage.src="image/Result/11_VARK.png";
+            resultImage.src="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Result/11_VARK.png";
             console.log("check-VARK");
             break;    
     
@@ -680,40 +680,40 @@ function ImageList(LoadingImage){
 
     }
     else if (LoadingImage ==2){
-        TheChangeImg[1].src ="image/Page2/foxycat_reading.png";
+        TheChangeImg[1].src ="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Page2/foxycat_reading.png";
 
     }
     else if (LoadingImage ==3){
-        TheChangeImg[0].src ="image/Page3/computer_background.png";
-        TheChangeImg[2].src ="image/Page3/computer.png";
+        TheChangeImg[0].src ="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Page3/computer_background.png";
+        TheChangeImg[2].src ="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Page3/computer.png";
 
     }
     else if (LoadingImage ==4){
-        TheChangeImg[0].src ="image/Page3/computer_background.png";
-        TheChangeImg[1].src ="image/Page4/foxycat_look.png";
-        TheChangeBGM[1].src ="sound/02_FunHouseTrap.mp3";
+        TheChangeImg[0].src ="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Page3/computer_background.png";
+        TheChangeImg[1].src ="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Page4/foxycat_look.png";
+        TheChangeBGM[1].src ="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/sound/02_FunHouseTrap.mp3";
 
     }
     else if (LoadingImage ==5){
-        TheChangeImg[0].src ="image/Page5/bg_moon_earth.jpg";
-        TheChangeImg[4].src ="image/Page5/Foxycat_shock.png";
+        TheChangeImg[0].src ="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Page5/bg_moon_earth.jpg";
+        TheChangeImg[4].src ="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Page5/Foxycat_shock.png";
     }
     else if (LoadingImage ==6){
-        TheChangeImg[0].src ="image/Page6/bg_school_room.jpg";
-        TheChangeImg[1].src ="image/Page6/teacher.png";
+        TheChangeImg[0].src ="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Page6/bg_school_room.jpg";
+        TheChangeImg[1].src ="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Page6/teacher.png";
     }
     else if (LoadingImage ==7){
-        TheChangeImg[0].src ="image/Page7/bg_stage.png";
-        TheChangeImg[1].src ="image/Page7/foxycat_withpad.png";
+        TheChangeImg[0].src ="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Page7/bg_stage.png";
+        TheChangeImg[1].src ="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Page7/foxycat_withpad.png";
 
     }
     else if (LoadingImage ==8){
-        TheChangeImg[0].src ="image/Page8/bg_road.png";
-        TheChangeImg[4].src ="image/Page8/foxycat_withQuestionMark.png";
+        TheChangeImg[0].src ="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Page8/bg_road.png";
+        TheChangeImg[4].src ="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Page8/foxycat_withQuestionMark.png";
         let thePointer = document.getElementsByClassName("FingerPoint");
         let thePointerImg = thePointer[0].getElementsByTagName("img");
-        thePointerImg[0].src ="image/Result/computer_cursor_finger_white.png";
-        TheChangeBGM[2].src ="sound/04_DorrisDay.mp3";
+        thePointerImg[0].src ="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/image/Result/computer_cursor_finger_white.png";
+        TheChangeBGM[2].src ="https://storage.googleapis.com/wpassets.junyiacademy.org/static-pages/learner-personality-quiz-2022/sound/04_DorrisDay.mp3";
 
     }
 
