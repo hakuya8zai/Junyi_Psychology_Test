@@ -355,7 +355,7 @@ function FinalScore(){
                 CaseID = 3;
             }
             else{
-                console.loh("RK");
+                console.log("RK");
                 CaseID = 10;
             }
         }
@@ -375,7 +375,7 @@ function FinalScore(){
 
 }
 
-
+// 回到 Github 的話要移除 image 前全部的網址
 // 根據 CaseID，將結尾頁用 switch 顯示為指定的頁面
 function ResultPage(){
     let resultImage = document.querySelector(".resultImage1");
